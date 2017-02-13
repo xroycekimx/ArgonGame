@@ -19,35 +19,8 @@
       -->
     </div>
 
-    <ar-scene>
-      <a-assets>
-        <!--
-        Assets if needed
-        -->
-      </a-assets>
-      <!-- lla should be placed at Tech Towers
-      <ar-geopose id="" lla="-84.394539 33.772501 320" userotation="false">
-
-      </ar-geopose>
-      -->
-
-      <a-entity id="game" position="0 -1 -8">
-        <a-box position="-1 0.5 1" cursor-listener rotation="0 0 0" width="1" height="1" depth="1"  color="#4CC3D9" ></a-box>
-      </a-entity>
-
-      <ar-camera>
-        <a-entity id="myCursor" cursor="fuse:true; fuse-timeout: 1000"
-                    position="0 0 -0.1"
-                    geometry="primitive: ring; radiusInner: 0.001; radiusOuter: 0.0015"
-                    material="color: #2E3A87; opacity:0.3;">
-        </a-entity>
-      </ar-camera>
-
-      <a-entity cursor raycaster="near: 0; far: 20; interval: 1000; objects: .clickable;"></a-entity>
-
-    </ar-scene>
-
     <script>
+      /*
       function getRandColor () {
           var letters = '0123456789ABCDEF'.split('');
           var color = '#';
@@ -56,21 +29,46 @@
           }
           return color;
       }
+      */
 
       // Component to change to random color on click.
       // Possible useful functions - init, update, tick
+
+      // Color red
+      var color = "#FF0000"
+
       AFRAME.registerComponent('cursor-listener', {
         init: function () {
+
+          // Changes object from blue to red
           this.el.addEventListener('click', function (evt) {
-            this.setAttribute('material', 'color', getRandColor());
+            this.setAttribute('material', 'color', color);
             console.log('I was clicked at: ', evt.detail.intersection.point);
           });
+
           this.el.addEventListener('mouseenter', function (evt) {
             this.setAttribute('material', 'opacity', 0.5);
           });
+
           this.el.addEventListener('mouseleave', function (evt) {
             this.setAttribute('material', 'opacity', 1.0);
           });
+        }
+
+        update: function() {
+          var rot = this.el.getAttribute('rotation')
+          this.el.addEventListener('click', function (evt) {
+
+            // Rotate on z-axis when clicked
+            if (rot.z < 90) {
+              rot.z += 5;
+            }
+            this.el.setAttribute("rotation", {x: rot.x, y: rot.y, z: rot.z});
+
+            // Delete after rotating 90
+            if (rot.z > 90) {
+              this.el.parentNode.removeChild(this.el);
+            }
         }
       });
 
@@ -87,6 +85,35 @@
         content.setAttribute("position", {x: vec.x, y: vec.y, z: vec.z});
       })
     </script>
+
+    <ar-scene>
+      <a-assets>
+        <!--
+        Assets if needed
+        -->
+      </a-assets>
+      <!-- lla should be placed at Tech Towers
+      <ar-geopose id="" lla="-84.394539 33.772501 320" userotation="false">
+
+      </ar-geopose>
+      -->
+
+      <a-entity id="game" position="0 -1 -8">
+        <a-box position="-1 0.5 1" cursor-listener rotation="0 0 0" width="1" height="1" depth="1"  color="##0000FF" ></a-box>
+      </a-entity>
+
+      <ar-camera>
+        <!-- Custom geometry must be created for crosshair -->
+        <a-entity id="myCursor" cursor="fuse:true; fuse-timeout: 1000"
+                    position="0 0 -0.1"
+                    geometry="primitive: ring; radiusInner: 0.001; radiusOuter: 0.0015"
+                    material="color: #2E3A87; opacity:0.3;">
+        </a-entity>
+      </ar-camera>
+
+      <a-entity cursor raycaster="near: 0; far: 20; interval: 1000; objects: .clickable;"></a-entity>
+
+    </ar-scene>
 
   </body>
 </html>
