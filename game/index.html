@@ -63,7 +63,7 @@
             if (rot.z < 90) {
               rot.z += 5;
             }
-            this.el.setAttribute("rotation", {x: rot.x, y: rot.y, z: rot.z});
+            this.setAttribute("rotation", {x: rot.x, y: rot.y, z: rot.z});
 
             // Delete after rotating 90
             if (rot.z > 90) {
