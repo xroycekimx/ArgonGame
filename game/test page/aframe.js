@@ -1,50 +1,28 @@
+var nowFocused = ""; 
+
+// Color red
+var color = "#FF0000";
+
 function main() {
-  /*
-  function getRandColor () {
-      var letters = '0123456789ABCDEF'.split('');
-      var color = '#';
-      for (var i = 0; i < 6; i++) {
-          color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-  }
-  */
-
-  // Component to change to random color on click.
-  // Possible useful functions - init, update, tick
-
-  // Color red
-  var color = "#FF0000";
 
   AFRAME.registerComponent('cursor-listener', {
     init: function () {
 
-      // Changes object from blue to red
-      this.el.addEventListener('click', function (evt) {
-        this.setAttribute('material', 'color', color);
-        console.log('I was clicked at: ', evt.detail.intersection.point);
-      });
-
       this.el.addEventListener('mouseenter', function (evt) {
         this.setAttribute('material', 'opacity', 0.5);
+        nowFocused = this.id;
+        console.log(nowFocused);
       });
 
       this.el.addEventListener('mouseleave', function (evt) {
         this.setAttribute('material', 'opacity', 1.0);
+        nowFocused = "";
       });
     },
 
     update: function() {
       var rot = this.el.getAttribute('rotation');
       this.el.addEventListener('click', function (evt) {
-
-        /*
-        // Rotate on z-axis when clicked
-        if (rot.z < 90) {
-          rot.z += 5;
-        }
-        this.setAttribute("rotation", {x: rot.x, y: rot.y, z: rot.z});
-        */
 
         // Delete after rotating 90 backwards
         if (rot.z == 270) {
@@ -67,3 +45,19 @@ function main() {
     content.setAttribute("position", {x: vec.x, y: vec.y, z: vec.z});
   });
 }
+
+function toggle(){ 
+   if(nowFocused != ""){
+      var focusedObjtect = document.getElementById(nowFocused);
+      focusedObjtect.click();
+      console.log("click button");
+      focusedObjtect.setAttribute("color", color);
+      focusedObjtect.innerHTML +="<a-animation attribute='rotation' to='0 0 -90' direction='normal' dur='2000' easing='ease-in'></a-animation>"
+      var gunAudio = document.getElementById("gunAudio");
+      gunAudio.play();
+   }
+   else {
+        console.log("You are not focus anything");
+   }
+}
+
