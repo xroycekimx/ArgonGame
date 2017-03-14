@@ -1,0 +1,123 @@
+<html>
+  <head>
+    <title>Game</title>
+    <meta name="description" content="Geolocation">
+    <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+    <script src="../resources/js/argon.min.js"></script>
+    <script src="../build.js"></script>
+    <script src="../resources/js/CSS3DArgonRenderer.js"></script>
+    <script src="../resources/js/CSS3DArgonHUD.js"></script>
+    <script src="../resources/js/aframe-look-at-component.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+    <link rel="stylesheet" href="../resources/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="../resources/style.css">
+  </head>
+  <body>
+    <script>
+    var skiles = true;
+    var library = false;
+    var techTower = false;
+    var studentCenter = false;
+    var culc = false;
+    var skilesPos = " -84.395410 33.773619 320";
+    var libraryPos = " -84.395396 33.774066 320";
+    var techTowerPos = " -84.394792 33.772587 320";
+    var studentCenterPos = " -84.398769 33.773983 320";
+    var culcPos = " -84.396372 33.775081 320";
+    var skilesGo = true;
+    var libraryGo = false;
+    var techTowerGo = false;
+    var studentCenterGo = false;
+    var culcGo = false;
+    if (skilesGo == true) {
+      skilesPos = " -84.395410 33.773619 320";
+    }
+    else {
+      skilesPos = null;
+    }
+
+    if (libraryGo == true) {
+      libraryPos = " -84.395396 33.774066 320";
+    }
+    else {
+      libraryPos = null;
+    }
+
+    if (techTowerGo == true) {
+      techTowerPos = " -84.394792 33.772587 320";
+    }
+    else {
+      techTowerPos = null;
+    }
+
+    if (studentCenterGo == true) {
+      studentCenterPos = " -84.398769 33.773983 320";
+    }
+    else {
+      studentCenterPos = null;
+    }
+
+    if (culcGo == true) {
+      culcPos = " -84.396372 33.775081 320";
+    }
+    else {
+      culcPos = null;
+    }
+
+    </script>
+
+    <ar-scene>
+    Go to
+    1. skiles
+    2. library
+    3. tech tower
+    4. student center
+    5. culc
+    <!--skiles: 33.773619, -84.395410, tech tower: 33.772587, -84.394792, student center: 33.773983, -84.398769, culc: 33.775081, -84.396372, library: 33.774066, -84.395396 -->
+    <!--techtowers -->
+       <!-- <ar-geopose id="GT" lla="-84.394539 33.772501 320" userotation="false">
+          <a-sphere position="0 2 -1" radius="1.25" color="#EF2D5E"></a-sphere>
+       </ar-geopose> -->
+
+        <ar-geopose id="GT" lla= skilesPos userotation="false">
+          <a-sphere position="0 2 -1" radius="10.25" color="#EF2D5E"></a-sphere>
+            <script>
+              if (useposition == skilesPos) {
+                libraryGo = true; }
+            </script>
+       </ar-geopose>
+
+       <ar-geopose id="GT" lla= libraryPos userotation="false">
+          <a-sphere position="0 2 -1" radius="10.25" color="#EF2D5E"></a-sphere>
+            <script>
+              if (useposition == libraryPos) {
+                techTowerGo = true; }
+            </script>
+       </ar-geopose>
+
+       <ar-geopose id="GT" lla= techTowerPos userotation="false">
+          <a-sphere position="0 2 -1" radius="10.25" color="#EF2D5E"></a-sphere>
+            <script>
+              if (useposition == techTowerPos) {
+                studentCenterGo = true; }
+            </script>
+       </ar-geopose>
+
+       <ar-geopose id="GT" lla= studentCenterPos userotation="false">
+          <a-sphere position="0 2 -1" radius="10.25" color="#EF2D5E"></a-sphere>
+            <script>
+              if (useposition == studentCenterPos) {
+                culcGo = true; }
+            </script>
+       </ar-geopose>
+
+       <ar-geopose id="GT" lla= culcPos userotation="false">
+          <a-sphere position="0 2 -1" radius="10.25" color="#EF2D5E"></a-sphere>
+       </ar-geopose>
+
+    </ar-scene>
+
+    </ar-geopose>
+
+  </body>
+</html>
