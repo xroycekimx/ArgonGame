@@ -1,4 +1,5 @@
 var nowFocused = ""; 
+var rotZ = 0;
 
 // Color red
 var color = "#FF0000";
@@ -11,7 +12,7 @@ function main() {
       this.el.addEventListener('mouseenter', function (evt) {
         this.setAttribute('material', 'opacity', 0.5);
         nowFocused = this.id;
-        console.log(nowFocused);
+        rotZ = this.getAttribute('rotation').z;       
       });
 
       this.el.addEventListener('mouseleave', function (evt) {
@@ -19,18 +20,8 @@ function main() {
         nowFocused = "";
       });
     },
-
-    update: function() {
-      var rot = this.el.getAttribute('rotation');
-      this.el.addEventListener('click', function (evt) {
-
-        // Delete after rotating 90 backwards
-        if (rot.z == 270) {
-          this.el.parentNode.removeChild(this.el);
-        }
-      });
-    }
   });
+
 
   var arScene = document.querySelector('a-scene');
   var content = document.querySelector('#game');
@@ -46,15 +37,26 @@ function main() {
   });
 }
 
+
 function toggle(){ 
-   if(nowFocused != ""){
-      var focusedObjtect = document.getElementById(nowFocused);
-      focusedObjtect.click();
-      console.log("click button");
-      focusedObjtect.setAttribute("color", color);
-      focusedObjtect.innerHTML +="<a-animation attribute='rotation' to='0 0 -90' direction='normal' dur='2000' easing='ease-in'></a-animation>"
-      var gunAudio = document.getElementById("gunAudio");
-      gunAudio.play();
+  var gunAudio = document.getElementById("gunAudio");
+  gunAudio.play();
+  
+  if(nowFocused != ""){ 
+       var focusedObjtect = document.getElementById(nowFocused);
+
+       if (rotZ == 400){
+            console.log(rotZ);
+            focusedObjtect.parentNode.removeChild(focusedObjtect);
+        }
+        
+        else{
+            rotZ += 100;
+
+            focusedObjtect.setAttribute("color", color);
+             // ROTATION   
+            focusedObjtect.setAttribute("rotation", {x: 0, y: 0, z: rotZ}); 
+        } 
    }
    else {
         console.log("You are not focus anything");

@@ -1,7 +1,7 @@
 #button{
   position:absolute;
-  float :right;
-  bottom: 0px;
+  bottom: 10px;
+  right:10px;
   z-index: 110;
   width:100px;
   height:60px;
