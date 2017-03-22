@@ -20,11 +20,11 @@ a {
     padding: 0px 0px;
 }
 
-#button{
-  position:absolute;
+#button {
+  position: absolute;
   bottom: 50px;
-  right:10px;
+  right: 10px;
   z-index: 110;
-  width:100px;
-  height:60px;
+  width: 100px;
+  height: 60px;
 }

@@ -10,7 +10,7 @@
     <script src="../resources/js/aframe-look-at-component.js"></script>
     <script type="text/javascript" src="game.js"></script>
     <link rel="stylesheet" href="../resources/css/font-awesome.min.css">
-	  <link rel="stylesheet" type="text/css" href="../resources/style.css">
+	  <link rel="stylesheet" type="text/css" href="test.css">
   </head>
   <body>
 
@@ -23,7 +23,7 @@
     <script type="text/javascript">main();</script>
 
     <div id="button">
-      <img id="bt" src="../resources/images/button.png" width="100px" height="60px" onclick="playGunshot()">
+      <img id="bt" src="../resources/images/button.png" width="100px" height="60px" onclick="playGunshot();">
     </div>
 
     <ar-scene>
@@ -38,15 +38,15 @@
       -->
 
       <a-entity id="game" position="0 -1 -8">
-        <a-entity id="alien" position="0 0.5 1" alien rotation="0 0 0" width="1" height="1" depth="1">
+        <a-entity id="alien" position="0 0.5 1" alien-listener rotation="0 0 0" width="1" height="1" depth="1">
           <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>
         </a-entity>
 
-        <a-entity id="alien" position="-5 0.5 1" alien rotation="0 0 0" width="1" height="1" depth="1">
+        <a-entity id="alien" position="-5 0.5 1" alien-listener rotation="0 0 0" width="1" height="1" depth="1">
           <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>
         </a-entity>
 
-        <a-entity id="alien" position="5 0.5 1" alien rotation="0 0 0" width="1" height="1" depth="1">
+        <a-entity id="alien" position="5 0.5 1" alien-listener rotation="0 0 0" width="1" height="1" depth="1">
           <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>
         </a-entity>
       </a-entity>

@@ -16,7 +16,7 @@ function main() {
   // Color red
   var colorRed = "#FF0000";
 
-  AFRAME.registerComponent('alien', {
+  AFRAME.registerComponent('alien-listener', {
     schema: {
       name: {type: 'string'},
       health: {type: 'number'}
