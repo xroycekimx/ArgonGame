@@ -69,6 +69,7 @@ function main() {
 
   var arScene = document.querySelector('ar-scene');
   var content = document.querySelector('#game');
+  var gui = document.querySelector('gui');
 
   // the ar-camera has an argon reference frame attached, so when it gets it's first value,
   // we'll get this event
@@ -78,6 +79,13 @@ function main() {
     vec.multiplyScalar(-10);
     vec.y -= 1;
     content.setAttribute("position", {x: vec.x, y: vec.y, z: vec.z});
+  });
+
+  arScene.addEventListener('argon-initialized', function(evt) {
+    arScene.sceneEl.hud.appendChild(gui);
+    arScene.sceneEl.argonApp.focusEvent.addEventListener(function () {
+        document.getElementById('gui').style.display = 'block';
+    });
   });
 }
 
