@@ -52,7 +52,6 @@ function toggle(){
         
         else{
             rotZ += 100;
-
             focusedObjtect.setAttribute("color", color);
              // ROTATION   
             focusedObjtect.setAttribute("rotation", {x: 0, y: 0, z: rotZ}); 
