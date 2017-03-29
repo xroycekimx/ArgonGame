@@ -14,14 +14,23 @@ function main() {
   // Possible useful functions - init, update, tick
 
   // Color red
-  var color = "#FF0000";
+  var colorRed = "#FF0000";
 
-  AFRAME.registerComponent('cursor-listener', {
+  AFRAME.registerComponent('alien-listener', {
+    schema: {
+      name: {type: 'string'},
+      health: {type: 'number'}
+      color: {type: 'string'}
+    }
+
     init: function () {
+      var data = this.data;
 
-      // Changes object from blue to red
+      this.setAttribute('name', "Alien 1");
+      this.setAttribute('health', 2);
+      this.setAttribute('material', 'color', "#0000FF");
+
       this.el.addEventListener('click', function (evt) {
-        this.setAttribute('material', 'color', color);
         console.log('I was clicked at: ', evt.detail.intersection.point);
       });
 
@@ -35,27 +44,32 @@ function main() {
     },
 
     update: function() {
-      var rot = this.el.getAttribute('rotation');
-      this.el.addEventListener('click', function (evt) {
+      var el = this.el;
+      var data = this.data;
+      var rot = el.getAttribute('rotation');
 
-        /*
-        // Rotate on z-axis when clicked
-        if (rot.z < 90) {
-          rot.z += 5;
-        }
-        this.setAttribute("rotation", {x: rot.x, y: rot.y, z: rot.z});
-        */
-
+      el.addEventListener('click', function (evt) {
+        if (data.health > 0) {
+          el.setAttribute('health', data.health - 1);
+        } else if (data.health == 0) {
+          el.setAttribute('material', 'color', colorRed);
+          //el.setAttribute('rotation', {direction: 'normal', dur: 3000, easing: 'ease-in', from: '0 0 0', to: '270 0 0', repeat: '0'});
+          data.target.emit('alienDeath');
+        };
         // Delete after rotating 90 backwards
-        if (rot.z == 270) {
-          this.el.parentNode.removeChild(this.el);
-        }
+        if (rot.x == 270) {
+          el.parentNode.removeChild(el);
+        };
+
+        console.log('Name: ', data.name);
+        console.log('Health: ', data.health);
       });
     }
   });
 
   var arScene = document.querySelector('ar-scene');
   var content = document.querySelector('#game');
+  var gui = document.querySelector('gui');
 
   // the ar-camera has an argon reference frame attached, so when it gets it's first value,
   // we'll get this event
@@ -66,4 +80,16 @@ function main() {
     vec.y -= 1;
     content.setAttribute("position", {x: vec.x, y: vec.y, z: vec.z});
   });
+
+  arScene.addEventListener('argon-initialized', function(evt) {
+    arScene.sceneEl.hud.appendChild(gui);
+    arScene.sceneEl.argonApp.focusEvent.addEventListener(function () {
+        document.getElementById('gui').style.display = 'block';
+    });
+  });
+}
+
+function playGunshot() {
+  var gunAudio = document.getElementById("gunAudio");
+  gunAudio.play();
 }

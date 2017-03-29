@@ -20,3 +20,14 @@ a {
     padding: 0px 0px;
 }
 
+<<<<<<< HEAD
+=======
+#button {
+  position: absolute;
+  bottom: 50px;
+  right: 10px;
+  z-index: 1000;
+  width: 100px;
+  height: 60px;
+}
+>>>>>>> master
