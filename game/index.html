@@ -24,10 +24,14 @@
 
     <div id="gui" class="gui">
       <div id="button">
+<<<<<<< HEAD
         <img id="bt" src="../resources/images/button.png" width="50px" height="100px" onclick="playGunshot(); click()">
 
         <img id="reLoad" src="../resources/images/reload.png" width="70px" height="70px">
 
+=======
+        <img id="bt" src="../resources/images/button.png" width="100px" height="60px" onclick="playGunshot(); click();">
+>>>>>>> master
       </div>
     </div>
 
@@ -46,15 +50,19 @@
       -->
 
       <a-entity id="game" position="0 -1 -8">
+<<<<<<< HEAD
         <a-entity collada-model="#alienModel" id="alien" position="0 0.5 1" alien-listener rotation="0 0 0" width="1" height="1" depth="1">
+=======
+        <a-entity id="alien1" position="0 0.5 1" alien-listener rotation="0 0 0" width="1" height="1" depth="1">
+>>>>>>> master
           <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>
         </a-entity>
 
-        <a-entity id="alien" position="-5 0.5 1" alien-listener rotation="0 0 0" width="1" height="1" depth="1">
+        <a-entity id="alien2" position="-5 0.5 1" alien-listener rotation="0 0 0" width="1" height="1" depth="1">
           <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>
         </a-entity>
 
-        <a-entity id="alien" position="5 0.5 1" alien-listener rotation="0 0 0" width="1" height="1" depth="1">
+        <a-entity id="alien3" position="5 0.5 1" alien-listener rotation="0 0 0" width="1" height="1" depth="1">
           <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>
         </a-entity>
       </a-entity>
