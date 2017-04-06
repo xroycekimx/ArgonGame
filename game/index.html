@@ -20,27 +20,40 @@
       -->
     </div>
 
-    <script type="text/javascript">main();</script>
-
     <div id="gui" class="gui">
-      <div id="button">
-<<<<<<< HEAD
-        <img id="bt" src="../resources/images/button.png" width="50px" height="100px" onclick="playGunshot(); click()">
+        <audio id="gunAudio" src="../resources/sounds/gunshot.mp3" ></audio>
+
+        <div id="button">
+<!-- <<<<<<< HEAD -->
+          <img id="bt" src="../resources/images/button.png" width="50px" height="100px" onclick="playGunshot(); click()">
+        </div>
 
         <img id="reLoad" src="../resources/images/reload.png" width="70px" height="70px">
+        <div id="scoreArea">
+          <img id="score" src="../resources/images/score-final.png" width="70px" height="140px"></div>
+        <div id="bulletArea">
+          <img id="bullet" src="../resources/images/bullet-final.png" width="60px" height="140px"></div>
+        <div id="bombArea">
+          <img id="bombTime" src="../resources/images/bombtime-final.png" width="53px" height="140px"></div>
+        <div id="alienArea">
+          <img id="alienNum" src="../resources/images/aliennumber-final.png" width="60px" height="140px"></div>
 
-=======
-        <img id="bt" src="../resources/images/button.png" width="100px" height="60px" onclick="playGunshot(); click();">
->>>>>>> master
-      </div>
+<!-- ======= -->
+        <!-- <img id="bt" src="../resources/images/button.png" width="100px" height="60px" onclick="playGunshot(); click();"> -->
+<!-- >>>>>>> master -->
+      
     </div>
 
+    <script type="text/javascript">main();</script>
     <ar-scene>
       <a-assets>
         <audio id="gunshot" src="../resources/sounds/gunshot.mp3">
         <img id="cursorImg" src="../resources/images/mouse.png">
         <a-asset-item id="alienModel" src="../resources/models/alien.dae"></a-asset-item>
-        
+        <a-asset-item id="alienModel" src="../resources/models/alien02.dae"></a-asset-item>
+        <a-asset-item id="alienModel" src="../resources/models/alien03.dae"></a-asset-item>
+        <a-asset-item id="alienModel" src="../resources/models/bossAlien.dae"></a-asset-item>
+        <a-asset-item id="alienModel" src="../resources/models/gun.dae"></a-asset-item>     
       </a-assets>
 
       <!-- This lla should be placed at Tech Towers
@@ -50,19 +63,19 @@
       -->
 
       <a-entity id="game" position="0 -1 -8">
-<<<<<<< HEAD
-        <a-entity collada-model="#alienModel" id="alien" position="0 0.5 1" alien-listener rotation="0 0 0" width="1" height="1" depth="1">
-=======
-        <a-entity id="alien1" position="0 0.5 1" alien-listener rotation="0 0 0" width="1" height="1" depth="1">
->>>>>>> master
+<!-- <<<<<<< HEAD -->
+        <a-entity collada-model="#alienModel" id="alien1" position="-5 0.5 1" alien-listener rotation="0 0 0" scale="0.15 0.15 0.15">
+<!-- ======= -->
+
+<!-- >>>>>>> master -->
           <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>
         </a-entity>
 
-        <a-entity id="alien2" position="-5 0.5 1" alien-listener rotation="0 0 0" width="1" height="1" depth="1">
+        <a-entity collada-model="#alienModel" id="alien2" position="0 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
           <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>
         </a-entity>
 
-        <a-entity id="alien3" position="5 0.5 1" alien-listener rotation="0 0 0" width="1" height="1" depth="1">
+        <a-entity collada-model="#alienModel" id="alien3" position="5 0.5 1" alien-listener rotation="0 0 0" scale="0.5 0.5 0.5">
           <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>
         </a-entity>
       </a-entity>
@@ -81,7 +94,7 @@
                                  fill="forwards" from="1 1 1" to="0.5 0.5 0.5" dur="1500">
                     </a-animation>
                     -->
-                <a-image src="#cursorImg" width="0.2" height="0.2" opacity="0.75" position="0 0 -1.5"></a-image>
+                <a-image src="#cursorImg" scale="0.015 0.015 0.015" opacity="0.75"></a-image>
         </a-entity>
       </ar-camera>
 

@@ -11,7 +11,7 @@ function main() {
 
       this.el.addEventListener('mouseenter', function (evt) {
         console.log("focus");
-        this.setAttribute('material', 'opacity', 0.5);
+        this.setAttribute('material', 'opacity', 0.1);
         nowFocused = this.id;
         rotZ = this.getAttribute('rotation').z;       
       });

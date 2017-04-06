@@ -20,9 +20,9 @@ a {
     padding: 0px 0px;
 }
 
-<<<<<<< HEAD
-=======
-#button {
+/*<<<<<<< HEAD
+=======*/
+#bt{
   position:absolute;
   bottom: 10px;
   left:10px;
@@ -41,4 +41,45 @@ a {
   width:70px;
   height:70px;
 }
->>>>>>> master
+/*>>>>>>> master*/
+
+#score{
+  position:absolute;
+  top: 150px;
+  right:10px;
+  float:right;
+  z-index: 110;
+  width:60px;
+  height:140px;
+}
+
+#bombTime{
+  position:absolute;
+  top: 10px;
+  left:30px;
+  float:left;
+  z-index: 110;
+  width:53px;
+  height:140px;
+}
+
+#bullet{
+  position:absolute;
+  top: 10px;
+  left:90px;
+  float:left;
+  z-index: 110;
+  width:60px;
+  height:140px;
+}
+
+#alienNum{
+  position:absolute;
+  top: 10px;
+  left:170px;
+  float:left;
+  z-index: 110;
+  width:60px;
+  height:140px;
+}
+
