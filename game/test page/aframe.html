@@ -19,16 +19,27 @@
       <!--
       Add some stuff if needed
       -->
-        <div id="button" ><img id="bt" src="../../resources/images/button.png" width="50px" height="100px" onclick="toggle()"></div>
         <audio id="gunAudio" src="../../resources/sounds/gunshot.mp3" ></audio>
+
+        <div id="button" ><img id="bt" src="../../resources/images/button.png" width="50px" height="100px" onclick="playGunshot()"></div>
+            
         <img id="reLoad" src="../../resources/images/reload.png" width="70px" height="70px">
+        
+        <div id="scoreArea">0</div>
         <img id="score" src="../../resources/images/score-final.png" width="70px" height="140px">
+        
+        <div id="bulletArea">20/20</div>
         <img id="bullet" src="../../resources/images/bullet-final.png" width="60px" height="140px">
+
+        <div id="bombArea">15:00</div>
         <img id="bombTime" src="../../resources/images/bombtime-final.png" width="53px" height="140px">
+
+        <div id="alienArea">20/20</div>
         <img id="alienNum" src="../../resources/images/aliennumber-final.png" width="60px" height="140px">
     </div>
 
     <script type="text/javascript">main();</script>
+ <!--     <script type="text/javascript">displayGUI();</script> -->
 
     <a-scene>
       <a-assets>
@@ -49,15 +60,15 @@
 
       <a-entity id="game" position="0 -1 -8">
         
-        <a-entity collada-model="#alienModel" id="alien1" position="0 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
+        <a-entity collada-model="#alienModel" id="alien1" position="0 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">
           <!--  <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>  -->
         </a-entity>
 
-        <a-entity collada-model="#alienModel" id="alien2" position="-5 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
+        <a-entity collada-model="#alienModel" id="alien2" position="-5 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">
            <!-- <a-animation attribute="rotation" begin="click" direction="normal" dur="3000" easing="ease-in" to="0 0 -90" repeat="0"></a-animation> -->
         </a-entity>
 
-        <a-entity collada-model="#alienModel" id="alien3" position="5 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
+        <a-entity collada-model="#alienModel" id="alien3" position="5 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">
          <!--  <a-animation attribute="rotation" begin="click" direction="normal" dur="3000" easing="ease-in" to="0 0 -90" repeat="0"></a-animation> -->
         </a-entity>
       </a-entity>
@@ -77,7 +88,7 @@
                     </a-animation>
                     -->
                     <a-image src="#cursorImg" scale="0.01 0.01 0.01" opacity="1"></a-image>
-                    <a-entity collada-model="#gunModel" position="0 -1.2 -1" rotation="30 140 35" scale="5 5 5">
+                    <a-entity collada-model="#gunModel" position="-1 0 -1" rotation="145 50 -20" scale="4 4 4">
         </a-entity>
 
         

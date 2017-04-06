@@ -25,13 +25,13 @@ function main() {
   });
 
 
-  var arScene = document.querySelector('a-scene');
+  var arScene = document.querySelector('ar-scene');
   var content = document.querySelector('#game');
 
   // the ar-camera has an argon reference frame attached, so when it gets it's first value,
   // we'll get this event
   arScene.addEventListener("referenceframe-statuschanged", function () {
-    var camera = document.querySelector('a-camera');
+    var camera = document.querySelector('ar-camera');
     var vec = camera.object3D.getWorldDirection();
     vec.multiplyScalar(-10);
     vec.y -= 1;
