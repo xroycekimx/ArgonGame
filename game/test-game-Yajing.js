@@ -70,6 +70,7 @@ function playGunshot() {
    }
 
   updateGUI();
+  checkBullets();
 
 }
 
@@ -84,4 +85,22 @@ function updateGUI(){
   var nodeBullet = document.getElementById("bulletArea");  
   nodeBullet.innerHTML = "<div>" + bulletNum+ "/20</div>";
   
+}
+
+function checkBullets(){
+  if (bulletNum <= 1){
+        var hideButton = document.getElementById("button");
+        hideButton.innerHTML = "";
+        console.log("no bullets");
+  }
+}
+
+function reload(){
+  bulletNum = 20;
+  var showButton = document.getElementById("button");
+  showButton.innerHTML = "<img id='bt' src='../../resources/images/button.png' width='50px' height='100px' onclick='playGunshot()'>";
+  console.log("reload bullets");
+
+  var nodeBullet = document.getElementById("bulletArea");  
+  nodeBullet.innerHTML = "<div>" + bulletNum+ "/20</div>";
 }

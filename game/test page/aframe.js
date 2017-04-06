@@ -24,19 +24,18 @@ function main() {
     },
   });
 
+  // var arScene = document.querySelector('a-scene');
+  // var content = document.querySelector('#game');
 
-  var arScene = document.querySelector('a-scene');
-  var content = document.querySelector('#game');
-
-  // the ar-camera has an argon reference frame attached, so when it gets it's first value,
-  // we'll get this event
-  arScene.addEventListener("referenceframe-statuschanged", function () {
-    var camera = document.querySelector('a-camera');
-    var vec = camera.object3D.getWorldDirection();
-    vec.multiplyScalar(-10);
-    vec.y -= 1;
-    content.setAttribute("position", {x: vec.x, y: vec.y, z: vec.z});
-  });
+  // // the ar-camera has an argon reference frame attached, so when it gets it's first value,
+  // // we'll get this event
+  // arScene.addEventListener("referenceframe-statuschanged", function () {
+  //   var camera = document.querySelector('a-camera');
+  //   var vec = camera.object3D.getWorldDirection();
+  //   vec.multiplyScalar(-10);
+  //   vec.y -= 1;
+  //   content.setAttribute("position", {x: vec.x, y: vec.y, z: vec.z});
+  // });
 }
 
 function playGunshot() {
@@ -57,7 +56,7 @@ function playGunshot() {
         
         else{
             rotZ += 100;
-            scaleNum = scaleNum - 0.2;
+            scaleNum = scaleNum - 0.15;
             console.log("shoot");
            
              // ROTATION   
@@ -70,7 +69,7 @@ function playGunshot() {
    }
 
   updateGUI();
-
+  checkBullets();
 }
 
 function updateGUI(){
@@ -85,3 +84,22 @@ function updateGUI(){
   nodeBullet.innerHTML = "<div>" + bulletNum+ "/20</div>";
   
 }
+
+function checkBullets(){
+  if (bulletNum <= 0){
+        var hideButton = document.getElementById("button");
+        hideButton.innerHTML = "";
+        console.log("no bullets");
+  }
+}
+
+function reload(){
+  bulletNum = 20;
+  var showButton = document.getElementById("button");
+  showButton.innerHTML = "<img id='bt' src='../../resources/images/button.png' width='50px' height='100px' onclick='playGunshot()'>";
+  console.log("reload bullets");
+
+  var nodeBullet = document.getElementById("bulletArea");  
+  nodeBullet.innerHTML = "<div>" + bulletNum+ "/20</div>";
+}
+    
