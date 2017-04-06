@@ -35,10 +35,10 @@
         <audio id="gunshot" src="../../resources/sounds/gunshot.mp3">
         <img id="cursorImg" src="../../resources/images/mouse.png">
         <a-asset-item id="alienModel" src="../../resources/models/alien.dae"></a-asset-item>
-        <a-asset-item id="alienModel" src="../../resources/models/alien02.dae"></a-asset-item>
-        <a-asset-item id="alienModel" src="../../resources/models/alien03.dae"></a-asset-item>
-        <a-asset-item id="alienModel" src="../../resources/models/bossAlien.dae"></a-asset-item>
-        <a-asset-item id="alienModel" src="../../resources/models/gun.dae"></a-asset-item> 
+        <a-asset-item id="alienModel02" src="../../resources/models/alien02.dae"></a-asset-item>
+        <a-asset-item id="alienModel03" src="../../resources/models/alien03.dae"></a-asset-item>
+        <a-asset-item id="alienModelBoss" src="../../resources/models/bossAlien.dae"></a-asset-item>
+        <a-asset-item id="gunModel" src="../../resources/models/gun.dae"></a-asset-item> 
       </a-assets>
 
       <!-- This lla should be placed at Tech Towers
@@ -76,7 +76,8 @@
                                  fill="forwards" from="1 1 1" to="0.5 0.5 0.5" dur="1500">
                     </a-animation>
                     -->
-                    <a-image src="#cursorImg" scale="0.015 0.015 0.015" opacity="1"></a-image>
+                    <a-image src="#cursorImg" scale="0.01 0.01 0.01" opacity="1"></a-image>
+                    <a-entity collada-model="#gunModel" position="0 -1.2 -1" rotation="30 140 35" scale="5 5 5">
         </a-entity>
 
         
