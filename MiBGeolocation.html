@@ -1,0 +1,55 @@
+<html>
+  <script src="geoScript.js"></script>
+  <head>
+    <title>Geolocation</title>
+    <meta name="description" content="Geolocation">
+    <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+    <script src="../resources/js/argon.min.js"></script>
+    <script src="../build.js"></script>
+    <script src="../resources/js/CSS3DArgonRenderer.js"></script>
+    <script src="../resources/js/CSS3DArgonHUD.js"></script>
+    <script src="../resources/js/aframe-look-at-component.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+    <link rel="stylesheet" href="../resources/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../resources/style.css">
+  </head>
+  <body>
+
+    <ar-scene>
+       <ar-geopose id="Test" lla= "-84.404679 33.779659 320" userotation="false" >
+          <a-sphere position="0 2 -1" radius="10.25" color="#EF2D5E"></a-sphere>
+          <a-obj-model src="#alien1-obj" mtl="#alien1-mtl" scale="0.001 0.001 0.001"></a-obj-model>
+          <a-assets>
+          <a-asset-item id="alien1-obj" src="ArgonGame-master\game\resources\models\alien.dae"></a-asset-item>
+          <!-- <a-asset-item id="tree-mtl" src="/path/to/tree.mtl"></a-asset-item> -->
+          </a-assets>
+          <a-entity obj-model="obj: #alien1-obj; mtl:"></a-entity>
+
+       </ar-geopose>
+       <!-- skiles -->
+       <ar-geopose id="Skiles" lla= " -84.395410 33.773619 320" userotation="false" trigger="radius:10;event:nearSkiles">
+          <a-sphere position="0 2 -1" radius="10.25" color="#EF2D5E"></a-sphere>
+       </ar-geopose>
+       <!-- library -->
+       <ar-geopose id="Library" lla= " -84.395396 33.774066 320" userotation="false" trigger="radius:10;event:nearLibrary">
+          <a-sphere position="0 2 -1" radius="10.25" color="#EF2D5E"></a-sphere>
+       </ar-geopose>
+       <!-- tech tower -->
+       <ar-geopose id="TechTower" lla= " -84.394792 33.772587 320" userotation="false" trigger="radius:10;event:nearTechTower">
+          <a-sphere position="0 2 -1" radius="10.25" color="#EF2D5E"></a-sphere>
+       </ar-geopose>
+       <!-- student center -->
+       <ar-geopose id="StudentCenter" lla= " -84.398769 33.773983 320" userotation="false" trigger="radius:10;event:nearStudentCenter">
+          <a-sphere position="0 2 -1" radius="10.25" color="#EF2D5E"></a-sphere>
+       </ar-geopose>
+       <!-- culc -->
+       <ar-geopose id="Culc" lla= " -84.396372 33.775081 320" userotation="false" trigger="radius:10;event:nearCulc">
+          <a-sphere position="0 2 -1" radius="10.25" color="#EF2D5E"></a-sphere>
+       </ar-geopose>
+
+    </ar-scene>
+
+    </ar-geopose>
+
+  </body>
+</html>
