@@ -8,7 +8,7 @@
     <script src="../resources/js/CSS3DArgonRenderer.js"></script>
     <script src="../resources/js/CSS3DArgonHUD.js"></script>
     <script src="../resources/js/aframe-look-at-component.js"></script>
-    <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="test-game-Yajing.js"></script>
     <link rel="stylesheet" href="../resources/css/font-awesome.min.css">
 	  <link rel="stylesheet" type="text/css" href="../resources/style.css">
   </head>
@@ -20,17 +20,44 @@
       -->
     </div>
 
-    <script type="text/javascript">main();</script>
-
     <div id="gui" class="gui">
-      <div id="button">
-        <img id="bt" src="../resources/images/button.png" width="100px" height="60px" onclick="playGunshot(); click();">
-      </div>
+        <audio id="gunAudio" src="../resources/sounds/gunshot.mp3" ></audio>
+
+        <div id="button">
+<!-- <<<<<<< HEAD -->
+          <img id="bt" src="../resources/images/button.png" width="50px" height="100px" onclick="playGunshot();">
+        </div>
+
+        <img id="reLoad" src="../resources/images/reload.png" width="70px" height="70px" onclick="reload()">
+
+        <div id="scoreArea">0</div>
+        <img id="score" src="../resources/images/score-final.png" width="60px" height="140px">
+        
+        <div id="bulletArea">20/20</div>
+        <img id="bullet" src="../resources/images/bullet-final.png" width="60px" height="140px">
+        
+        <div id="bombArea">15:00</div>
+        <img id="bombTime" src="../resources/images/bombtime-final.png" width="53px" height="140px">
+        
+        <div id="alienArea">20/20</div>
+        <img id="alienNum" src="../resources/images/aliennumber-final.png" width="55px" height="140px">
+
+<!-- ======= -->
+        <!-- <img id="bt" src="../resources/images/button.png" width="100px" height="60px" onclick="playGunshot(); click();"> -->
+<!-- >>>>>>> master -->
+      
     </div>
 
+    <script type="text/javascript">main();</script>
     <ar-scene>
       <a-assets>
         <audio id="gunshot" src="../resources/sounds/gunshot.mp3">
+        <img id="cursorImg" src="../resources/images/mouse.png">
+        <a-asset-item id="alienModel" src="../resources/models/alien.dae"></a-asset-item>
+        <a-asset-item id="alienModel02" src="../resources/models/alien02.dae"></a-asset-item>
+        <a-asset-item id="alienModel03" src="../resources/models/alien03.dae"></a-asset-item>
+        <a-asset-item id="alienModelBoss" src="../resources/models/bossAlien.dae"></a-asset-item>
+        <a-asset-item id="gunModel" src="../resources/models/gun.dae"></a-asset-item>     
       </a-assets>
 
       <!-- This lla should be placed at Tech Towers
@@ -40,15 +67,19 @@
       -->
 
       <a-entity id="game" position="0 -1 -8">
-        <a-entity id="alien1" position="0 0.5 1" alien-listener rotation="0 0 0" width="1" height="1" depth="1">
+<!-- <<<<<<< HEAD -->
+        <a-entity collada-model="#alienModel" id="alien1" position="-5 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1 1">
+<!-- ======= -->
+
+<!-- >>>>>>> master -->
           <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>
         </a-entity>
 
-        <a-entity id="alien2" position="-5 0.5 1" alien-listener rotation="0 0 0" width="1" height="1" depth="1">
+        <a-entity collada-model="#alienModel" id="alien2" position="0 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">
           <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>
         </a-entity>
 
-        <a-entity id="alien3" position="5 0.5 1" alien-listener rotation="0 0 0" width="1" height="1" depth="1">
+        <a-entity collada-model="#alienModel" id="alien3" position="5 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">
           <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>
         </a-entity>
       </a-entity>
@@ -67,6 +98,8 @@
                                  fill="forwards" from="1 1 1" to="0.5 0.5 0.5" dur="1500">
                     </a-animation>
                     -->
+                <a-image src="#cursorImg" scale="0.01 0.01 0.01" opacity="0.75"></a-image>
+                <a-entity collada-model="#gunModel" position="-1 0 -1" rotation="145 50 -20" scale="4 4 4">
         </a-entity>
       </ar-camera>
 
