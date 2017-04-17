@@ -20,21 +20,23 @@
       Add some stuff if needed
       -->
         <audio id="gunAudio" src="../../resources/sounds/gunshot.mp3" ></audio>
+        <audio id="reloadAudio" src="../../resources/sounds/reloadaudio.wav" ></audio>
+        <audio id="gotPonitsAudio" src="../../resources/sounds/gotPonitsAudio.wav" ></audio>
 
         <div id="button" ><img id="bt" src="../../resources/images/button.png" width="50px" height="100px" onclick="playGunshot()"></div>
             
         <img id="reLoad" src="../../resources/images/reload.png" width="70px" height="70px" onclick="reload()">
         
-        <div id="scoreArea">0</div>
-        <img id="score" src="../../resources/images/score-final.png" width="70px" height="140px">
+        <div id="scoreArea">000</div>
+        <img id="score" src="../../resources/images/score-final.png" width="60px" height="140px">
         
-        <div id="bulletArea">20/20</div>
+        <div id="bulletArea">15/15</div>
         <img id="bullet" src="../../resources/images/bullet-final.png" width="60px" height="140px">
 
         <div id="bombArea">15:00</div>
         <img id="bombTime" src="../../resources/images/bombtime-final.png" width="53px" height="140px">
 
-        <div id="alienArea">20/20</div>
+        <div id="alienArea">15/15</div>
         <img id="alienNum" src="../../resources/images/aliennumber-final.png" width="60px" height="140px">
     </div>
 
@@ -48,7 +50,7 @@
         <a-asset-item id="alienModel" src="../../resources/models/alien.dae"></a-asset-item>
         <a-asset-item id="alienModel02" src="../../resources/models/alien02.dae"></a-asset-item>
         <a-asset-item id="alienModel03" src="../../resources/models/alien03.dae"></a-asset-item>
-        <a-asset-item id="alienModelBoss" src="../../resources/models/bossAlien.dae"></a-asset-item>
+        <a-asset-item id="alienModelBoss" src="../../resources/models/alienBoss.dae"></a-asset-item>
         <a-asset-item id="gunModel" src="../../resources/models/gun.dae"></a-asset-item> 
       </a-assets>
 
@@ -58,19 +60,52 @@
       </ar-geopose>
       -->
 
-      <a-entity id="game" position="0 -1 -8">
-        
-        <a-entity collada-model="#alienModel" id="alien1" position="0 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">
-          <!--  <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>  -->
+      <a-entity id="game" position="0 -1 -8">     
+        <a-entity collada-model="#alienModel" class="alien01" id="alien1" position="0 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">         
         </a-entity>
 
-        <a-entity collada-model="#alienModel" id="alien2" position="-5 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">
-           <!-- <a-animation attribute="rotation" begin="click" direction="normal" dur="3000" easing="ease-in" to="0 0 -90" repeat="0"></a-animation> -->
+        <a-entity collada-model="#alienModel" class="alien01" id="alien2" position="1 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">         
         </a-entity>
 
-        <a-entity collada-model="#alienModel" id="alien3" position="5 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">
-         <!--  <a-animation attribute="rotation" begin="click" direction="normal" dur="3000" easing="ease-in" to="0 0 -90" repeat="0"></a-animation> -->
+        <a-entity collada-model="#alienModel" class="alien01" id="alien3" position="2 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">         
         </a-entity>
+
+        <a-entity collada-model="#alienModel" class="alien01" id="alien4" position="3 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">         
+        </a-entity>
+
+        <a-entity collada-model="#alienModel" class="alien01" id="alien5" position="4 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">         
+        </a-entity>
+
+        <a-entity collada-model="#alienModel02" class="alien02" id="alien6" position="-5 0.5 1" alien-listener rotation="0 0 0" scale="0.8 0.8 0.8">    
+        </a-entity>
+
+        <a-entity collada-model="#alienModel02" class="alien02" id="alien7" position="-4 0.5 1" alien-listener rotation="0 0 0" scale="0.8 0.8 0.8">    
+        </a-entity>
+
+        <a-entity collada-model="#alienModel02" class="alien02" id="alien8" position="-3 0.5 1" alien-listener rotation="0 0 0" scale="0.8 0.8 0.8">    
+        </a-entity>
+
+        <a-entity collada-model="#alienModel02" class="alien02" id="alien9" position="-2 0.5 1" alien-listener rotation="0 0 0" scale="0.8 0.8 0.8">    
+        </a-entity>
+
+        <a-entity collada-model="#alienModel02" class="alien02" id="alien10" position="-1 0.5 1" alien-listener rotation="0 0 0" scale="0.8 0.8 0.8">    
+        </a-entity>
+
+        <a-entity collada-model="#alienModel03" class="alien03" id="alien11" position="5 0.5 1" alien-listener rotation="0 0 0" scale="20 20 20">
+        </a-entity>
+
+        <a-entity collada-model="#alienModel03" class="alien03" id="alien12" position="6 0.5 1" alien-listener rotation="0 0 0" scale="20 20 20">
+        </a-entity>
+
+        <a-entity collada-model="#alienModel03" class="alien03" id="alien13" position="7 0.5 1" alien-listener rotation="0 0 0" scale="20 20 20">
+        </a-entity>
+
+        <a-entity collada-model="#alienModel03" class="alien03" id="alien14" position="8 0.5 1" alien-listener rotation="0 0 0" scale="20 20 20">
+        </a-entity>
+
+        <a-entity collada-model="#alienModel03" class="alien03" id="alien15" position="9 0.5 1" alien-listener rotation="0 0 0" scale="20 20 20">
+        </a-entity>
+
       </a-entity>
 
       <a-camera>
