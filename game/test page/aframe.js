@@ -5,7 +5,7 @@ var score = 0;
 var alienNum = 15;
 var bulletNum = 15;
 
-var secondLocation = [false, false, false];
+var secondGo = [false, false, false];
 
 function main() {
 
@@ -16,7 +16,8 @@ function main() {
         // console.log("focus");
         this.setAttribute('material', 'opacity', 0.1);
         nowFocused = this.id;
-        rotZ = this.getAttribute('rotation').z;       
+        rotZ = this.getAttribute('rotation').z; 
+        scaleNum = this.getAttribute('scale').x;       
       });
 
       this.el.addEventListener('mouseleave', function (evt) {
@@ -49,7 +50,7 @@ function playGunshot() {
    if(nowFocused != ""){ 
        var focusedObjtect = document.getElementById(nowFocused);
 
-       if (rotZ == 80){
+       if (rotZ == 40){
             console.log(rotZ);
             focusedObjtect.parentNode.removeChild(focusedObjtect);
             alienNum = alienNum -1;
@@ -60,9 +61,9 @@ function playGunshot() {
         }
         
         else{
-            rotZ += 40;
+            rotZ += 20;
             scaleNum = scaleNum - 0.1;
-            console.log("shoot");
+            console.log(rotZ);
            
              // ROTATION   
             focusedObjtect.setAttribute("rotation", {x: 0, y: 0, z: rotZ}); 
@@ -73,12 +74,17 @@ function playGunshot() {
         console.log("You are not focus anything");
    }
 
-  updateGUI();
+}
+
+function updateFirstscene(){
+  updateScore();
+  updateAlien01();
+  updateBullets();
   checkBullets();
   leadNext();
 }
 
-function updateGUI(){
+function updateScore(){
 
   if (score < 10){
     var nodeScore = document.getElementById("scoreArea");
@@ -94,20 +100,34 @@ function updateGUI(){
     var nodeScore = document.getElementById("scoreArea");
     nodeScore.innerHTML = "<div>" + score + "</div>"; 
   }
-  
 
-  var nodeAlien = document.getElementById("alienArea");
-  nodeAlien.innerHTML = "<div>" + alienNum+ "/15</div>";
+}
 
-  var nodeBullet = document.getElementById("bulletArea");  
-  nodeBullet.innerHTML = "<div>" + bulletNum+ "/15</div>";
-  
+function updateAlien01(){
+    var nodeAlien = document.getElementById("alienArea");
+      if (alienNum < 10){
+         nodeAlien.innerHTML = "<div>0" + alienNum+ "/15</div>";
+      }
+      else{
+        nodeAlien.innerHTML = "<div>" + alienNum+ "/15</div>";
+      }
+}
+
+function updateBullets(){
+   var nodeBullet = document.getElementById("bulletArea"); 
+
+   if (bulletNum < 10){
+         nodeBullet.innerHTML = "<div>0" + bulletNum + "/15</div>";
+      }
+      else{
+        nodeBullet.innerHTML = "<div>" + bulletNum + "/15</div>";
+      }
 }
 
 function checkBullets(){
   if (bulletNum <= 0){
-        var hideButton = document.getElementById("button");
-        hideButton.innerHTML = "";
+        var hideButton = document.getElementById("bt");
+        hideButton.style.display = "none";
         console.log("no bullets");
   }
 }
@@ -117,38 +137,166 @@ function reload(){
   reloadAudio.play();
 
   bulletNum = 15;
-  var showButton = document.getElementById("button");
-  showButton.innerHTML = "<img id='bt' src='../../resources/images/button.png' width='50px' height='100px' onclick='playGunshot()'>";
+  var showButton = document.getElementById("bt");
+  showButton.style.display = "block";
+
   console.log("reload bullets");
 
   var nodeBullet = document.getElementById("bulletArea");  
-  nodeBullet.innerHTML = "<div>" + bulletNum+ "/20</div>";
+  nodeBullet.innerHTML = "<div>" + bulletNum+ "/15</div>";
 }
 
 function leadNext(){
   var alien01 = document.getElementsByClassName("alien01");
-  console.log(alien01.length);
+  // console.log(alien01.length);
 
   var alien02 = document.getElementsByClassName("alien02");
-  console.log(alien02.length);
+  // console.log(alien02.length);
 
   var alien03 = document.getElementsByClassName("alien03");
-  console.log(alien03.length);
+  // console.log(alien03.length);
 
   var alien = [alien01.length, alien02.length, alien03.length];
-  var next = ["Student Center.","library","Culc"]
+  var next = ["../videos/killnormal1.mp4","../videos/killgood1.mp4","../videos/killbad1.mp4"]
 
   for (i = 0; i < alien.length; i++) { 
-    if (alien[i] == 0) {
-      window.alert("Go to " + next[i] +".");
-      secondLocation[i] = true;
+    if (alien[i] == 3) {
+      var vid = document.getElementById("myVideo");
+      var btn = document.getElementById("videoControl");
+
+      var source = document.createElement('source');
+      source.setAttribute('src', next[i]);
+      source.setAttribute('type', 'video/mp4');
+      vid.appendChild(source);
+
+      vid.style.display = "block";
+      btn.style.display = "block";
+      vid.play(); 
+      secondGo[i] = true;
+      ShowSecond();
       }
     }
 }
+
+function pauseVid() { 
+    var vid = document.getElementById("myVideo"); 
+    var btn = document.getElementById("videoControl");
+
+    vid.pause(); 
+    vid.style.display = "none";
+    btn.style.display = "none";
+
+    vid.innerHTML = "";
+} 
     
 
-function ShowSecond{
-  if (secondLocation[0] ==true){
-           
+function ShowSecond(){
+  var nextID = ["#alienModel","#alienModel02","#alienModel03"]
+
+  document.getElementById('bt').onclick = function() { 
+           playGunshot();
+           updateSecondscene();
+        };
+
+  alienNum = 5;
+  var nodeAlien = document.getElementById("alienArea");
+  nodeAlien.innerHTML = "<div>0" + alienNum+ "/05</div>";
+
+  for (i = 0; i < secondGo.length; i++) {
+      if (secondGo[i] ==true){
+           var secondLocation = document.getElementById('secondScene');
+           secondLocation.innerHTML = "<a-entity position='0 0.5 1' alien-listener id='alien16' class='alienSecond' rotation='0 0 0' scale='1.2 1.2 1.2'></a-entity>";
+           secondLocation.innerHTML += "<a-entity position='2 0.5 1' alien-listener id='alien17' class='alienSecond' rotation='0 0 0' scale='1.2 1.2 1.2'></a-entity>";
+           secondLocation.innerHTML += "<a-entity position='4 0.5 1' alien-listener id='alien18' class='alienSecond' rotation='0 0 0' scale='1.2 1.2 1.2'></a-entity>";
+           secondLocation.innerHTML += "<a-entity position='5 0.5 1' alien-listener id='alien19' class='alienSecond' rotation='0 0 0' scale='1.2 1.2 1.2'></a-entity>";
+           secondLocation.innerHTML += "<a-entity position='6 0.5 1' alien-listener id='alien20' class='alienSecond' rotation='0 0 0' scale='1.2 1.2 1.2'></a-entity>";
+           var alienTag = document.getElementsByClassName('alienSecond');
+          
+           for (e = 0; e < alienTag.length; e++){
+              alienTag[e].setAttribute("collada-model", nextID[i]);
+           }           
+      }
+  }   
+}
+
+function updateSecondscene(){
+   var nodeAlien = document.getElementById("alienArea");
+   nodeAlien.innerHTML = "<div>0" + alienNum+ "/05</div>";
+  
+  updateScore();
+  updateBullets();
+  checkBullets();
+  leadThird();
+} 
+
+function leadThird(){
+  var secondVideo = ["../videos/killnormal2.mp4","../videos/killgood2.mp4","../videos/killbad2.mp4"]
+  var alienLeft = document.getElementsByClassName("alienSecond");
+
+  if(alienLeft.length == 4){
+
+    for (i = 0; i < secondGo.length; i++) {
+      if (secondGo[i] ==true){
+          var vid = document.getElementById("myVideo");
+          var btn = document.getElementById("videoControl");
+
+          var source = document.createElement('source');
+          source.setAttribute('src', secondVideo[i]);
+          source.setAttribute('type', 'video/mp4');
+          vid.appendChild(source);
+
+          console.log(source);
+          console.log(vid);
+
+          vid.style.display = "block";
+          btn.style.display = "block";
+          vid.play();
+      }
+    } 
+
+    showThird();   
   }
 }
+
+function showThird(){
+    setInterval(countdown(1), 3000);
+    if (secondGo[0] == false){
+         var thirdLocation = document.getElementById('thridScene');
+         thirdLocation.innerHTML = "<a-entity position='0 0.5 1' alien-listener collada-model='#alienModelBoss' id='alien21' class='alienThird' rotation='0 0 0' scale='1.2 1.2 1.2'></a-entity>";
+    }
+}
+
+
+var timeoutHandle;
+
+function countdown(minutes) {
+    var seconds = 60;
+    var mins = minutes;
+    function tick() {
+        var counter = document.getElementById("bombArea");
+        var current_minutes = mins-1
+        seconds--;
+        counter.innerHTML =
+        current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+        if( seconds > 0 ) {
+            timeoutHandle=setTimeout(tick, 1000);
+        } else {
+
+            if(mins > 1){
+
+               setTimeout(function () { countdown(mins - 1); }, 1000);
+
+            }
+        }
+    }
+
+    tick();
+}
+
+
+
+
+
+
+
+

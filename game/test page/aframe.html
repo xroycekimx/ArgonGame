@@ -14,7 +14,6 @@
 	  <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-
     <div id="gui" class="gui">
       <!--
       Add some stuff if needed
@@ -22,8 +21,11 @@
         <audio id="gunAudio" src="../../resources/sounds/gunshot.mp3" ></audio>
         <audio id="reloadAudio" src="../../resources/sounds/reloadaudio.wav" ></audio>
         <audio id="gotPonitsAudio" src="../../resources/sounds/gotPonitsAudio.wav" ></audio>
+        <video id="myVideo" style="display: none;"></video>
+        <button id="videoControl" onclick="pauseVid()" type="button" style="display: none;">Close</button>
+        
 
-        <div id="button" ><img id="bt" src="../../resources/images/button.png" width="50px" height="100px" onclick="playGunshot()"></div>
+        <div id="button" ><img id="bt" src="../../resources/images/button.png" width="50px" height="100px" onclick="playGunshot(); updateFirstscene();"></div>
             
         <img id="reLoad" src="../../resources/images/reload.png" width="70px" height="70px" onclick="reload()">
         
@@ -59,54 +61,72 @@
 
       </ar-geopose>
       -->
+      <a-assets>
+    <video id="penguin-sledding" autoplay loop="true" src="../videos/killnormal1.mp4"></video>
+  </a-assets>
+  <!-- Using the asset management system. -->
+  <a-video src="#penguin-sledding" width="16" height="9" position="0 0 -20"></a-video>
+  <!-- Defining the URL inline. Not recommended but more comfortable for web developers. -->
+
 
       <a-entity id="game" position="0 -1 -8">     
-        <a-entity collada-model="#alienModel" class="alien01" id="alien1" position="0 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">         
+        <a-entity collada-model="#alienModel" class="alien01" id="alien1" position="0 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">         
         </a-entity>
 
-        <a-entity collada-model="#alienModel" class="alien01" id="alien2" position="1 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">         
+        <a-entity collada-model="#alienModel" class="alien01" id="alien2" position="1 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">         
         </a-entity>
 
-        <a-entity collada-model="#alienModel" class="alien01" id="alien3" position="2 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">         
+        <a-entity collada-model="#alienModel" class="alien01" id="alien3" position="2 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">         
         </a-entity>
 
-        <a-entity collada-model="#alienModel" class="alien01" id="alien4" position="3 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">         
+        <a-entity collada-model="#alienModel" class="alien01" id="alien4" position="3 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">         
         </a-entity>
 
-        <a-entity collada-model="#alienModel" class="alien01" id="alien5" position="4 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">         
+        <a-entity collada-model="#alienModel" class="alien01" id="alien5" position="4 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">         
         </a-entity>
 
-        <a-entity collada-model="#alienModel02" class="alien02" id="alien6" position="-5 0.5 1" alien-listener rotation="0 0 0" scale="0.8 0.8 0.8">    
+        <a-entity collada-model="#alienModel02" class="alien02" id="alien6" position="-5 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">    
         </a-entity>
 
-        <a-entity collada-model="#alienModel02" class="alien02" id="alien7" position="-4 0.5 1" alien-listener rotation="0 0 0" scale="0.8 0.8 0.8">    
+        <a-entity collada-model="#alienModel02" class="alien02" id="alien7" position="-4 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">    
         </a-entity>
 
-        <a-entity collada-model="#alienModel02" class="alien02" id="alien8" position="-3 0.5 1" alien-listener rotation="0 0 0" scale="0.8 0.8 0.8">    
+        <a-entity collada-model="#alienModel02" class="alien02" id="alien8" position="-3 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">    
         </a-entity>
 
-        <a-entity collada-model="#alienModel02" class="alien02" id="alien9" position="-2 0.5 1" alien-listener rotation="0 0 0" scale="0.8 0.8 0.8">    
+        <a-entity collada-model="#alienModel02" class="alien02" id="alien9" position="-2 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">    
         </a-entity>
 
-        <a-entity collada-model="#alienModel02" class="alien02" id="alien10" position="-1 0.5 1" alien-listener rotation="0 0 0" scale="0.8 0.8 0.8">    
+        <a-entity collada-model="#alienModel02" class="alien02" id="alien10" position="-1 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">    
         </a-entity>
 
-        <a-entity collada-model="#alienModel03" class="alien03" id="alien11" position="5 0.5 1" alien-listener rotation="0 0 0" scale="20 20 20">
+        <a-entity collada-model="#alienModel03" class="alien03" id="alien11" position="5 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
         </a-entity>
 
-        <a-entity collada-model="#alienModel03" class="alien03" id="alien12" position="6 0.5 1" alien-listener rotation="0 0 0" scale="20 20 20">
+        <a-entity collada-model="#alienModel03" class="alien03" id="alien12" position="6 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
         </a-entity>
 
-        <a-entity collada-model="#alienModel03" class="alien03" id="alien13" position="7 0.5 1" alien-listener rotation="0 0 0" scale="20 20 20">
+        <a-entity collada-model="#alienModel03" class="alien03" id="alien13" position="7 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
         </a-entity>
 
-        <a-entity collada-model="#alienModel03" class="alien03" id="alien14" position="8 0.5 1" alien-listener rotation="0 0 0" scale="20 20 20">
+        <a-entity collada-model="#alienModel03" class="alien03" id="alien14" position="8 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
         </a-entity>
 
-        <a-entity collada-model="#alienModel03" class="alien03" id="alien15" position="9 0.5 1" alien-listener rotation="0 0 0" scale="20 20 20">
+        <a-entity collada-model="#alienModel03" class="alien03" id="alien15" position="9 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
         </a-entity>
 
       </a-entity>
+
+      <!-- Second Stage -->
+      <a-entity id="secondScene" position="-14 -1 -8" >
+         <!--  <a-entity collada-model='#alienModel' class='alien01Second' position='0 0.5 1' alien-listener rotation='0 0 0' scale='1.2 1.2 1.2'>
+        </a-entity> -->
+
+      </a-entity>
+
+      <!-- Third Stage -->
+       <a-entity id="thirdScene" position="14 -1 -8" >
+       </a-entity>
 
       <a-camera>
         <!-- Custom geometry must be created for crosshair -->
@@ -117,21 +137,13 @@
                     <a-animation begin="click" easing="ease-in" attribute="scale"
                                  fill="backwards" from="0.5 0.5 0.5" to="1 1 1" dur="150">
                     </a-animation>
-                    <!--
-                    <a-animation begin="fusing" easing="ease-in" attribute="scale"
-                                 fill="forwards" from="1 1 1" to="0.5 0.5 0.5" dur="1500">
-                    </a-animation>
-                    -->
+                  
                     <a-image src="#cursorImg" scale="0.01 0.01 0.01" opacity="1"></a-image>
                     <a-entity collada-model="#gunModel" position="-1 0 -1" rotation="145 50 -20" scale="4 4 4">
         </a-entity>
+   </a-camera>
 
-        
-        
-
-      </a-camera>
-
-      <a-entity cursor raycaster="near: 0; far: 20; interval: 1000; objects: .clickable;"></a-entity>
+   <a-entity cursor raycaster="near: 0; far: 20; interval: 1000; objects: .clickable;"></a-entity>
 
     </a-scene>
 
