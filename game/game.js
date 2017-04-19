@@ -175,9 +175,6 @@ function leadNext(){
       video.setAttribute('width', 12);
       video.setAttribute('height', 6.75);
       vid.appendChild(video);
-      
-      var playVideo = document.getElementById(arrID[i]);
-      playVideo.play();
 
       secondGo[i] = true;
       ShowSecond();
