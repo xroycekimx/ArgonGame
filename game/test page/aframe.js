@@ -169,8 +169,8 @@ function leadNext(){
       var video = document.createElement('a-video');
       video.setAttribute('src', next[i]);
       video.setAttribute("position", {x: 0, y: 2.2, z: 2});
-      video.setAttribute('width', 16);
-      video.setAttribute('height', 9);
+      video.setAttribute('width', 15);
+      video.setAttribute('height', 8.5);
       vid.appendChild(video);
 
       secondGo[i] = true;
@@ -245,8 +245,8 @@ function leadThird(){
           var video = document.createElement('a-video');
           video.setAttribute('src', secondVideo[i]);
           video.setAttribute("position", {x: 0, y: 2.2, z: 2});
-          video.setAttribute('width', 16);
-          video.setAttribute('height', 9);
+          video.setAttribute('width', 15);
+          video.setAttribute('height', 8.5);
           vid.appendChild(video);
 
           var btn = document.getElementById("videoControl");
@@ -345,8 +345,8 @@ function bomb(){
       var video = document.createElement('a-video');
       video.setAttribute('src', '#badending');
       video.setAttribute("position", {x: 0, y: 2.2, z: 2});
-      video.setAttribute('width', 16);
-      video.setAttribute('height', 9);
+      video.setAttribute('width', 15);
+      video.setAttribute('height', 8.5);
       vid.appendChild(video);
     }
   }
@@ -367,8 +367,8 @@ function leadForward(){
       var video = document.createElement('a-video');
       video.setAttribute('src', next[0]);
       video.setAttribute("position", {x: 0, y: 2.2, z: 2});
-      video.setAttribute('width', 16);
-      video.setAttribute('height', 9);
+      video.setAttribute('width', 15);
+      video.setAttribute('height', 8.5);
       vid.appendChild(video);
 
       
@@ -385,8 +385,8 @@ function leadForward(){
       var video = document.createElement('a-video');
       video.setAttribute('src', next[1]);
       video.setAttribute("position", {x: 0, y: 2.2, z: 2});
-      video.setAttribute('width', 16);
-      video.setAttribute('height', 9);
+      video.setAttribute('width', 15);
+      video.setAttribute('height', 8.5);
       vid.appendChild(video);
 
       
@@ -462,8 +462,8 @@ function leadFinal(){
       }
       
       video.setAttribute("position", {x: 0, y: 2.2, z: 2});
-      video.setAttribute('width', 16);
-      video.setAttribute('height', 9);
+      video.setAttribute('width', 15);
+      video.setAttribute('height', 8.5);
       vid.appendChild(video);
 
    }
