@@ -212,11 +212,11 @@ function ShowSecond(){
   for (i = 0; i < secondGo.length; i++) {
       if (secondGo[i] ==true){
            var secondLocation = document.getElementById(locationID[i]);
-           secondLocation.innerHTML = "<a-entity position='0 0.5 1' alien-listener id='alien16' class='alienSecond' rotation='0 0 0' scale='10 10 10'></a-entity>";
-           secondLocation.innerHTML += "<a-entity position='2 0.5 1' alien-listener id='alien17' class='alienSecond' rotation='0 0 0' scale='10 10 10'></a-entity>";
-           secondLocation.innerHTML += "<a-entity position='4 0.5 1' alien-listener id='alien18' class='alienSecond' rotation='0 0 0' scale='10 10 10'></a-entity>";
-           secondLocation.innerHTML += "<a-entity position='5 0.5 1' alien-listener id='alien19' class='alienSecond' rotation='0 0 0' scale='10 10 10'></a-entity>";
-           secondLocation.innerHTML += "<a-entity position='6 0.5 1' alien-listener id='alien20' class='alienSecond' rotation='0 0 0' scale='10 10 10'></a-entity>";
+           secondLocation.innerHTML = "<a-entity position='0 0.5 1' alien-listener id='alien16' class='alienSecond' rotation='0 90 0' scale='10 10 10'></a-entity>";
+           secondLocation.innerHTML += "<a-entity position='4 0.5 1' alien-listener id='alien17' class='alienSecond' rotation='0 70 0' scale='10 10 10'></a-entity>";
+           secondLocation.innerHTML += "<a-entity position='8 0.5 1' alien-listener id='alien18' class='alienSecond' rotation='0 10 0' scale='10 10 10'></a-entity>";
+           secondLocation.innerHTML += "<a-entity position='-4 0.5 1' alien-listener id='alien19' class='alienSecond' rotation='0 90 0' scale='10 10 10'></a-entity>";
+           secondLocation.innerHTML += "<a-entity position='8 0.5 1' alien-listener id='alien20' class='alienSecond' rotation='0 30 0' scale='10 10 10'></a-entity>";
            var alienTag = document.getElementsByClassName('alienSecond');
           
            for (e = 0; e < alienTag.length; e++){
@@ -271,9 +271,9 @@ function showThird(){
         nodeAlien.innerHTML = "Boss!";
 
         var thirdLocation = document.getElementById('thirdScene');
-        thirdLocation.innerHTML = "<a-entity position='0 0.5 1' alien-listener collada-model='#alienModelBoss' id='alien21' class='alienThird' rotation='0 0 0' scale='12 12 12'></a-entity>";
-        thirdLocation.innerHTML += "<a-entity position='1 0.5 1' alien-listener collada-model='#alienModelBoss' id='alien22' class='alienThird' rotation='0 0 0' scale='12 12 12'></a-entity>";
-        thirdLocation.innerHTML += "<a-entity position='2 0.5 1' alien-listener collada-model='#alienModelBoss' id='alien22' class='alienThird' rotation='0 0 0' scale='12 12 12'></a-entity>";
+        thirdLocation.innerHTML = "<a-entity position='0 0.5 1' alien-listener collada-model='#alienModelBoss' id='alien21' class='alienThird' rotation='0 10 0' scale='15 15 15'></a-entity>";
+        thirdLocation.innerHTML += "<a-entity position='-3 0.5 -2' alien-listener collada-model='#alienModelBoss' id='alien22' class='alienThird' rotation='0 60 0' scale='15 15 15'></a-entity>";
+        thirdLocation.innerHTML += "<a-entity position='5 -0.5 1' alien-listener collada-model='#alienModelBoss' id='alien22' class='alienThird' rotation='0 30 0' scale='15 15 15'></a-entity>";
         document.getElementById('bt').onclick = function() { 
            playGunshotBoss();
            updateLastscene();
