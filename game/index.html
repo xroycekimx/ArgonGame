@@ -11,8 +11,6 @@
     <script src="../resources/js/aframe-look-at-component.js"></script>
     <script type="text/javascript" src="game.js"></script>
     <link rel="stylesheet" href="../resources/css/font-awesome.min.css">
-    <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.min.js"></script>
-    <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
 	  <link rel="stylesheet" type="text/css" href="../resources/style.css">
   </head>
   <body>
@@ -74,10 +72,10 @@
 <!-- <<<<<<< HEAD -->
       <ar-geopose id="Skiles" lla= "-84.395410 33.773619 220" userotation="false">
         <a-entity collada-model="#alienModel" id="alien1" class="alien01" position="0 0.5 1" alien-listener rotation="0 90 0" scale="10 10 10">
-          <!-- <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation> -->
+           <a-animation attribute="rotation" from="0 -330 0 " to="0 30 0 " repeat="1" dur="2200" fill ="both" easing ="ease-out"></a-animation>
         </a-entity>
 
-        <a-entity collada-model="#alienModel" id="alien2" class="alien01" position="1 0.5 2" alien-listener rotation="0 90 0" scale="10 10 10"  alongpath="path:0,0,0 -5,10,-20 -5,6,-15; closed:false; dur:2000; delay:2500; inspect:false">
+        <a-entity collada-model="#alienModel" id="alien2" class="alien01" position="1 0.5 2" alien-listener rotation="0 90 0" scale="10 10 10">
         </a-entity>
 
         <a-entity collada-model="#alienModel" class="alien01" id="alien3" position="2 0.5 -1" alien-listener rotation="0 90 0" scale="10 10 10">
