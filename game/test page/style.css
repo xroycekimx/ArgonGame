@@ -133,9 +133,9 @@
 }
 
 #videoControl{
-  position:absolute;
-  top: 10px;
-  left:0px;
+  position: fixed;
+  top: calc(50% - 1em);
+  left: calc(50% - 2em);
   z-index: 130;
   background-color: #4CAF50; /* Green */
   border: none;
