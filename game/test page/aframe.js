@@ -160,7 +160,7 @@ function leadNext(){
   var next = ["../videos/killnormal1.mp4","../videos/killgood1.mp4","../videos/killbad1.mp4"]
 
   for (i = 0; i < alien.length; i++) { 
-    if (alien[i] == 3) {
+    if (alien[i] == 0) {
       var vid = document.getElementById("myVideo");
       var btn = document.getElementById("videoControl");
 
@@ -233,7 +233,7 @@ function leadThird(){
   var secondVideo = ["../videos/killnormal2.mp4","../videos/killgood2.mp4","../videos/killbad2.mp4"]
   var alienLeft = document.getElementsByClassName("alienSecond");
 
-  if(alienLeft.length == 4){
+  if(alienLeft.length == 0){
 
     for (i = 0; i < secondGo.length; i++) {
       if (secondGo[i] ==true){
@@ -259,10 +259,47 @@ function leadThird(){
 }
 
 function showThird(){
-    setInterval(countdown(1), 3000);
-    if (secondGo[0] == false){
-         var thirdLocation = document.getElementById('thridScene');
-         thirdLocation.innerHTML = "<a-entity position='0 0.5 1' alien-listener collada-model='#alienModelBoss' id='alien21' class='alienThird' rotation='0 0 0' scale='1.2 1.2 1.2'></a-entity>";
+   
+    console.log(secondGo[1]);
+    if (secondGo[1] == false){
+        setInterval(countdown(1), 5000);
+
+        var nodeAlien = document.getElementById("alienArea");
+        nodeAlien.innerHTML = "Boss";
+
+        var thirdLocation = document.getElementById('thirdScene');
+        thirdLocation.innerHTML = "<a-entity position='0 0.5 1' alien-listener collada-model='#alienModelBoss' id='alien21' class='alienThird' rotation='0 0 0' scale='1.2 1.2 1.2'></a-entity>";
+        document.getElementById('bt').onclick = function() { 
+           playGunshotBoss();
+           updateLastscene();
+         }
+    }
+
+    else{
+          var alien01 = document.getElementsByClassName("alien01");
+          var alien03 = document.getElementsByClassName("alien03");
+          
+          alienNum = alien01.length + alien03.length;
+
+          var nodeAlien = document.getElementById("alienArea");
+
+          if (alienNum < 10) {
+             nodeAlien.innerHTML = "<div>0" + alienNum+ "/15</div>";
+          }
+
+          else{
+              nodeAlien.innerHTML = "<div>" + alienNum+ "/15</div>";
+          }
+         
+
+          document.getElementById('bt').onclick = function() { 
+             playGunshot();
+             updateScore();
+             updateBullets();
+             checkBullets(); 
+             updateAlien01(); 
+             leadForward();        
+          }
     }
 }
 
@@ -291,11 +328,115 @@ function countdown(minutes) {
     }
 
     tick();
+    showAlter();
+}
+
+fuction showAlter(){
+  console.log("seconds"+seconds); 
+  console.log("mins"+mins); 
+  console.log("timeoutHandle"+timeoutHandle); 
+}
+
+function leadForward(){
+   var alien01 = document.getElementsByClassName("alien01");
+   var alien03 = document.getElementsByClassName("alien03");
+
+   var alien = [alien01.length, alien03.length];
+   var next = ["../videos/killnormal1.mp4","../videos/killbad1.mp4"]
+  
+    if (alien[0] == 0) {
+      var vid = document.getElementById("myVideo");
+      var btn = document.getElementById("videoControl");
+
+      var source = document.createElement('source');
+      source.setAttribute('src', next[0]);
+      source.setAttribute('type', 'video/mp4');
+      vid.appendChild(source);
+
+      vid.style.display = "block";
+      btn.style.display = "block";
+      vid.play(); 
+      secondGo[0] = true;
+      secondGo[1] = false;
+      ShowSecond();
+      }
+    else if (alien[1] == 0){
+      var vid = document.getElementById("myVideo");
+      var btn = document.getElementById("videoControl");
+
+      var source = document.createElement('source');
+      source.setAttribute('src', next[1]);
+      source.setAttribute('type', 'video/mp4');
+      vid.appendChild(source);
+
+      vid.style.display = "block";
+      btn.style.display = "block";
+      vid.play(); 
+      secondGo[2] = true;
+      secondGo[1] = false;
+      ShowSecond();
+    }
 }
 
 
+function  playGunshotBoss(){
+  var gunAudio = document.getElementById("gunAudio");
+  gunAudio.play();
 
+  bulletNum = bulletNum-1;
 
+   if(nowFocused != ""){ 
+       var focusedObjtect = document.getElementById(nowFocused);
+
+       if (rotZ == 80){
+            console.log(rotZ);
+            focusedObjtect.parentNode.removeChild(focusedObjtect);
+            alienNum = alienNum -1;
+            score = score + 10;
+
+            var pointsAudio = document.getElementById("gotPonitsAudio");
+            pointsAudio.play();
+        }
+        
+        else{
+            rotZ += 20;
+            scaleNum = scaleNum - 0.1;
+            console.log(rotZ);
+           
+             // ROTATION   
+            focusedObjtect.setAttribute("rotation", {x: 0, y: 0, z: rotZ}); 
+            focusedObjtect.setAttribute("scale", {x:scaleNum, y:scaleNum, z:scaleNum}); 
+        } 
+   }
+   else {
+        console.log("You are not focus anything");
+   }
+
+}
+
+function updateLastscene(){
+   updateScore();
+   updateBullets();
+   checkBullets();
+   leadFinal();        
+}
+
+function leadFinal(){
+   var alienBoss = document.getElementsByClassName("alienThird");
+   if (alienBoss.length == 0){
+      var vid = document.getElementById("myVideo");
+
+      var source = document.createElement('source');
+      source.setAttribute('src', '../videos/bestending.mp4');
+      source.setAttribute('type', 'video/mp4');
+      vid.appendChild(source);
+
+      vid.style.display = "block";
+
+      vid.play();
+   }
+
+}
 
 
 
