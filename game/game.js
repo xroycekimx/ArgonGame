@@ -267,7 +267,7 @@ function showThird(){
         setInterval(countdown(2), 5000);
 
         var nodeAlien = document.getElementById("alienArea");
-        nodeAlien.innerHTML = "Boss!!!";
+        nodeAlien.innerHTML = "Boss!";
 
         var thirdLocation = document.getElementById('thirdScene');
         thirdLocation.innerHTML = "<a-entity position='0 0.5 1' alien-listener collada-model='#alienModelBoss' id='alien21' class='alienThird' rotation='0 0 0' scale='1.2 1.2 1.2'></a-entity>";

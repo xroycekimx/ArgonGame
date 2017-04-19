@@ -19,7 +19,7 @@
         <audio id="gunAudio" src="../resources/sounds/gunshot.mp3" ></audio>
         <audio id="reloadAudio" src="../resources/sounds/reloadaudio.wav"></audio>
         <audio id="gotPonitsAudio" src="../resources/sounds/gotPonitsAudio.wav"></audio>
-        <button id="videoControl" onclick="pauseVid()" type="button" style="display: none;">Close</button>
+        <button id="videoControl" onclick="pauseVid()" type="button" style="display: none;">STOP</button>
 
         <div id="button">
           <img id="bt" src="../resources/images/button.png" width="50px" height="100px" onclick="playGunshot(); updateFirstscene();">
@@ -76,7 +76,8 @@
       </a-entity>
 <!-- <<<<<<< HEAD -->
       <ar-geopose id="Skiles" lla= " -84.395410 33.773619 320" userotation="false">
-        <a-entity collada-model="#alienModel" id="alien1" class="alien01" position="0 0.5 1" alien-listener rotation="0 0 0" scale="10 10 10">
+        <a-sphere color="yellow" radius="500"></a-sphere>
+        <a-entity collada-model="#alienModel" id="alien1" class="alien01" position="0 0.5 1" alien-listener rotation="0 0 0" scale="100 100 100">
           <!-- <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation> -->
         </a-entity>
 
