@@ -51,7 +51,7 @@ function playGunshot() {
        var focusedObjtect = document.getElementById(nowFocused);
 
        if (rotZ == 40){
-            console.log(rotZ);
+            // console.log(rotZ);
             focusedObjtect.parentNode.removeChild(focusedObjtect);
             alienNum = alienNum -1;
             score = score + 10;
@@ -63,7 +63,7 @@ function playGunshot() {
         else{
             rotZ += 20;
             scaleNum = scaleNum - 0.1;
-            console.log(rotZ);
+            // console.log(rotZ);
            
              // ROTATION   
             focusedObjtect.setAttribute("rotation", {x: 0, y: 0, z: rotZ}); 
@@ -262,13 +262,15 @@ function showThird(){
    
     console.log(secondGo[1]);
     if (secondGo[1] == false){
-        setInterval(countdown(1), 5000);
+        setInterval(countdown(2), 5000);
 
         var nodeAlien = document.getElementById("alienArea");
-        nodeAlien.innerHTML = "Boss";
+        nodeAlien.innerHTML = "Boss!!!";
 
         var thirdLocation = document.getElementById('thirdScene');
         thirdLocation.innerHTML = "<a-entity position='0 0.5 1' alien-listener collada-model='#alienModelBoss' id='alien21' class='alienThird' rotation='0 0 0' scale='1.2 1.2 1.2'></a-entity>";
+        thirdLocation.innerHTML += "<a-entity position='1 0.5 1' alien-listener collada-model='#alienModelBoss' id='alien22' class='alienThird' rotation='0 0 0' scale='1.2 1.2 1.2'></a-entity>";
+        thirdLocation.innerHTML += "<a-entity position='2 0.5 1' alien-listener collada-model='#alienModelBoss' id='alien22' class='alienThird' rotation='0 0 0' scale='1.2 1.2 1.2'></a-entity>";
         document.getElementById('bt').onclick = function() { 
            playGunshotBoss();
            updateLastscene();
@@ -305,10 +307,12 @@ function showThird(){
 
 
 var timeoutHandle;
+var mins;
+var seconds;
 
 function countdown(minutes) {
-    var seconds = 60;
-    var mins = minutes;
+     seconds = 60;
+     mins = minutes;
     function tick() {
         var counter = document.getElementById("bombArea");
         var current_minutes = mins-1
@@ -325,17 +329,31 @@ function countdown(minutes) {
 
             }
         }
+       bomb(); 
     }
 
     tick();
-    showAlter();
+   
 }
 
-fuction showAlter(){
-  console.log("seconds"+seconds); 
-  console.log("mins"+mins); 
-  console.log("timeoutHandle"+timeoutHandle); 
+function bomb(){
+  var alienBoss = document.getElementsByClassName("alienThird");
+  // console.log(alienBoss.length);
+  // console.log(mins+seconds);
+
+  if (alienBoss.length != 0){
+    if (mins+seconds == 1){
+      var vid = document.getElementById("myVideo");
+      var source = document.createElement('source');
+      source.setAttribute('src', '../videos/badending.mp4');
+      source.setAttribute('type', 'video/mp4');
+      vid.appendChild(source);
+
+      vid.style.display = "block";
+    }
+  }
 }
+
 
 function leadForward(){
    var alien01 = document.getElementsByClassName("alien01");
@@ -392,7 +410,7 @@ function  playGunshotBoss(){
             console.log(rotZ);
             focusedObjtect.parentNode.removeChild(focusedObjtect);
             alienNum = alienNum -1;
-            score = score + 10;
+            score = score + 50;
 
             var pointsAudio = document.getElementById("gotPonitsAudio");
             pointsAudio.play();
@@ -425,9 +443,22 @@ function leadFinal(){
    var alienBoss = document.getElementsByClassName("alienThird");
    if (alienBoss.length == 0){
       var vid = document.getElementById("myVideo");
-
       var source = document.createElement('source');
-      source.setAttribute('src', '../videos/bestending.mp4');
+      var alien02 = document.getElementsByClassName("alien02");
+      console.log(alien02);
+
+      if(alien02.length == 0){
+          source.setAttribute('src', '../videos/badending.mp4');
+      }
+
+      else if (score > 250 ) {
+          source.setAttribute('src', '../videos/bestending.mp4');
+      }
+
+      else {
+          source.setAttribute('src', '../videos/normalending.mp4');
+      }
+      
       source.setAttribute('type', 'video/mp4');
       vid.appendChild(source);
 
