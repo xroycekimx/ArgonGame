@@ -4,6 +4,7 @@
     <meta name="description" content="Game">
     <!-- <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script> -->
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+    
     <!-- <script src="../resources/js/argon.min.js"></script> -->
 <!--     <script src="../build.js"></script> -->
     <script src="../../resources/js/CSS3DArgonRenderer.js"></script>
@@ -61,15 +62,24 @@
 
       </ar-geopose>
       -->
-     <!--  <a-assets>
-         <video id="penguin-sledding" autoplay loop="true" src="../videos/killnormal1.mp4"></video>
+      <a-assets>
+         <video id="averageending" autoplay src="../videos/averageending.mp4"></video>
+         <video id="badending" autoplay src="../videos/killnormal1.mp4"></video>
+         <video id="bestending" autoplay src="../videos/killnormal1.mp4"></video>
+         <video id="killbad1" autoplay src="../videos/killnormal1.mp4"></video>
+         <video id="killbad2" autoplay src="../videos/killnormal1.mp4"></video>
+         <video id="killgood1" autoplay src="../videos/killgood1.mp4"></video>
+         <video id="killgood2" autoplay src="../videos/killnormal1.mp4"></video>
+         <video id="killnomal1" autoplay src="../videos/killnormal1.mp4"></video>
+         <video id="killnormal2" autoplay src="../videos/killnormal1.mp4"></video>
       </a-assets>
-  
-      <a-video src="#penguin-sledding" width="16" height="9" position="0 0 -20"></a-video> -->
+      
   
 
 
-      <a-entity id="game" position="0 -1 -8">     
+      <a-entity id="game" position="0 -1 -8">
+        <a-entity id ="videoContainer"></a-entity>
+         <!-- <a-video src="#averageending" width="16" height="9" position="0 2.2 2"></a-video> -->     
         <a-entity collada-model="#alienModel" class="alien01" id="alien1" position="0 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">         
         </a-entity>
 
@@ -139,7 +149,7 @@
                     </a-animation>
                   
                     <a-image src="#cursorImg" scale="0.01 0.01 0.01" opacity="1"></a-image>
-                    <a-entity collada-model="#gunModel" position="-1 0 -1" rotation="145 50 -20" scale="4 4 4">
+                    <a-entity collada-model="#gunModel" position="-1 0 -1" rotation="145 50 -20" scale="4 4 4"></a-entity>
         </a-entity>
    </a-camera>
 

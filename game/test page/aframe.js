@@ -157,35 +157,39 @@ function leadNext(){
   // console.log(alien03.length);
 
   var alien = [alien01.length, alien02.length, alien03.length];
-  var next = ["../videos/killnormal1.mp4","../videos/killgood1.mp4","../videos/killbad1.mp4"]
+  // var next = ["../videos/killnormal1.mp4","../videos/killgood1.mp4","../videos/killbad1.mp4"];
+  var next = ["#killnormal1","#killgood1","#killbad1"];
 
-  for (i = 0; i < alien.length; i++) { 
-    if (alien[i] == 0) {
-      var vid = document.getElementById("myVideo");
+  for (i = 0; i < 3; i++) { 
+    if (alien[i] == 4) {
       var btn = document.getElementById("videoControl");
-
-      var source = document.createElement('source');
-      source.setAttribute('src', next[i]);
-      source.setAttribute('type', 'video/mp4');
-      vid.appendChild(source);
-
-      vid.style.display = "block";
       btn.style.display = "block";
-      vid.play(); 
+
+      var vid = document.getElementById("videoContainer"); 
+      var video = document.createElement('a-video');
+      video.setAttribute('src', next[i]);
+      video.setAttribute("position", {x: 0, y: 2.2, z: 2});
+      video.setAttribute('width', 16);
+      video.setAttribute('height', 9);
+      vid.appendChild(video);
+
       secondGo[i] = true;
       ShowSecond();
+
       }
     }
 }
 
 function pauseVid() { 
-    var vid = document.getElementById("myVideo"); 
+    // var vid = document.getElementById("myVideo"); 
     var btn = document.getElementById("videoControl");
 
-    vid.pause(); 
-    vid.style.display = "none";
+    // vid.pause(); 
+    // vid.style.display = "none";
     btn.style.display = "none";
 
+    // vid.innerHTML = "";
+    var vid = document.getElementById("videoContainer"); 
     vid.innerHTML = "";
 } 
     
@@ -230,30 +234,25 @@ function updateSecondscene(){
 } 
 
 function leadThird(){
-  var secondVideo = ["../videos/killnormal2.mp4","../videos/killgood2.mp4","../videos/killbad2.mp4"]
+  var secondVideo = ["#killnormal2","#killgood2","#killbad2"]
   var alienLeft = document.getElementsByClassName("alienSecond");
 
   if(alienLeft.length == 0){
 
     for (i = 0; i < secondGo.length; i++) {
       if (secondGo[i] ==true){
-          var vid = document.getElementById("myVideo");
+          var vid = document.getElementById("videoContainer");
+          var video = document.createElement('a-video');
+          video.setAttribute('src', secondVideo[i]);
+          video.setAttribute("position", {x: 0, y: 2.2, z: 2});
+          video.setAttribute('width', 16);
+          video.setAttribute('height', 9);
+          vid.appendChild(video);
+
           var btn = document.getElementById("videoControl");
-
-          vid.innerHTML= "";
-
-          var source = document.createElement('source');
-          source.setAttribute('src', secondVideo[i]);
-          source.setAttribute('type', 'video/mp4');
-          vid.appendChild(source);
-
-          console.log(source);
-          console.log(vid);
-
-          vid.style.display = "block";
           btn.style.display = "block";
-          vid.play();
-      }
+          
+       }
     } 
 
     showThird();   
@@ -261,8 +260,7 @@ function leadThird(){
 }
 
 function showThird(){
-   
-    console.log(secondGo[1]);
+
     if (secondGo[1] == false){
         setInterval(countdown(2), 5000);
 
@@ -340,19 +338,16 @@ function countdown(minutes) {
 
 function bomb(){
   var alienBoss = document.getElementsByClassName("alienThird");
-  // console.log(alienBoss.length);
-  // console.log(mins+seconds);
 
   if (alienBoss.length != 0){
     if (mins+seconds == 1){
-      var vid = document.getElementById("myVideo");
-      var source = document.createElement('source');
-      vid.innerHTML= "";
-      source.setAttribute('src', '../videos/badending.mp4');
-      source.setAttribute('type', 'video/mp4');
-      vid.appendChild(source);
-
-      vid.style.display = "block";
+      var vid = document.getElementById("videoContainer");
+      var video = document.createElement('a-video');
+      video.setAttribute('src', '#badending');
+      video.setAttribute("position", {x: 0, y: 2.2, z: 2});
+      video.setAttribute('width', 16);
+      video.setAttribute('height', 9);
+      vid.appendChild(video);
     }
   }
 }
@@ -363,38 +358,40 @@ function leadForward(){
    var alien03 = document.getElementsByClassName("alien03");
 
    var alien = [alien01.length, alien03.length];
-   var next = ["../videos/killnormal1.mp4","../videos/killbad1.mp4"]
+   var next = ["#killnormal1","#killbad1"]
   
     if (alien[0] == 0) {
-      var vid = document.getElementById("myVideo");
+      var vid = document.getElementById("videoContainer");
       var btn = document.getElementById("videoControl");
-      vid.innerHTML= "";
 
-      var source = document.createElement('source');
-      source.setAttribute('src', next[0]);
-      source.setAttribute('type', 'video/mp4');
-      vid.appendChild(source);
+      var video = document.createElement('a-video');
+      video.setAttribute('src', next[0]);
+      video.setAttribute("position", {x: 0, y: 2.2, z: 2});
+      video.setAttribute('width', 16);
+      video.setAttribute('height', 9);
+      vid.appendChild(video);
 
-      vid.style.display = "block";
+      
       btn.style.display = "block";
-      vid.play(); 
+  
       secondGo[0] = true;
       secondGo[1] = false;
       ShowSecond();
       }
     else if (alien[1] == 0){
-      var vid = document.getElementById("myVideo");
+      var vid = document.getElementById("videoContainer");
       var btn = document.getElementById("videoControl");
-      vid.innerHTML= "";
 
-      var source = document.createElement('source');
-      source.setAttribute('src', next[1]);
-      source.setAttribute('type', 'video/mp4');
-      vid.appendChild(source);
+      var video = document.createElement('a-video');
+      video.setAttribute('src', next[1]);
+      video.setAttribute("position", {x: 0, y: 2.2, z: 2});
+      video.setAttribute('width', 16);
+      video.setAttribute('height', 9);
+      vid.appendChild(video);
 
-      vid.style.display = "block";
+      
       btn.style.display = "block";
-      vid.play(); 
+
       secondGo[2] = true;
       secondGo[1] = false;
       ShowSecond();
@@ -447,30 +444,28 @@ function updateLastscene(){
 function leadFinal(){
    var alienBoss = document.getElementsByClassName("alienThird");
    if (alienBoss.length == 0){
-      var vid = document.getElementById("myVideo");
-      var source = document.createElement('source');
-      vid.innerHTML= "";
+      var vid = document.getElementById("videoContainer");
+      var video = document.createElement('a-video');
       var alien02 = document.getElementsByClassName("alien02");
       console.log(alien02);
 
       if(alien02.length == 0){
-          source.setAttribute('src', '../videos/badending.mp4');
+          video.setAttribute('src', '#badending');
       }
 
       else if (score > 250 ) {
-          source.setAttribute('src', '../videos/bestending.mp4');
+         video.setAttribute('src', '#bestending');
       }
 
       else {
-          source.setAttribute('src', '../videos/normalending.mp4');
+          video.setAttribute('src', '#normalending');
       }
       
-      source.setAttribute('type', 'video/mp4');
-      vid.appendChild(source);
+      video.setAttribute("position", {x: 0, y: 2.2, z: 2});
+      video.setAttribute('width', 16);
+      video.setAttribute('height', 9);
+      vid.appendChild(video);
 
-      vid.style.display = "block";
-
-      vid.play();
    }
 
 }
