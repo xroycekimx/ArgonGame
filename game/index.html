@@ -75,8 +75,12 @@
         <a-entity id ="videoContainer"></a-entity>
       </a-entity>
 <!-- <<<<<<< HEAD -->
-      <ar-geopose id="Skiles" lla= " -84.395410 33.773619 320" userotation="false">
+      <ar-geopose id="Skiles" lla= "-84.395410 33.773619 320" userotation="false">
+        <a-sphere position="0 2 -1" radius="1.25" color="#EF2D5E"></a-sphere>
         <a-sphere color="yellow" radius="500"></a-sphere>
+        <a-sphere color="red" radius="50"></a-sphere>
+        <a-sphere color="blue" radius="5"></a-sphere>
+
         <a-entity collada-model="#alienModel" id="alien1" class="alien01" position="0 0.5 1" alien-listener rotation="0 0 0" scale="100 100 100">
           <!-- <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation> -->
         </a-entity>
