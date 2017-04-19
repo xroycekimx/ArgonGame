@@ -240,6 +240,8 @@ function leadThird(){
           var vid = document.getElementById("myVideo");
           var btn = document.getElementById("videoControl");
 
+          vid.innerHTML= "";
+
           var source = document.createElement('source');
           source.setAttribute('src', secondVideo[i]);
           source.setAttribute('type', 'video/mp4');
@@ -345,6 +347,7 @@ function bomb(){
     if (mins+seconds == 1){
       var vid = document.getElementById("myVideo");
       var source = document.createElement('source');
+      vid.innerHTML= "";
       source.setAttribute('src', '../videos/badending.mp4');
       source.setAttribute('type', 'video/mp4');
       vid.appendChild(source);
@@ -365,6 +368,7 @@ function leadForward(){
     if (alien[0] == 0) {
       var vid = document.getElementById("myVideo");
       var btn = document.getElementById("videoControl");
+      vid.innerHTML= "";
 
       var source = document.createElement('source');
       source.setAttribute('src', next[0]);
@@ -381,6 +385,7 @@ function leadForward(){
     else if (alien[1] == 0){
       var vid = document.getElementById("myVideo");
       var btn = document.getElementById("videoControl");
+      vid.innerHTML= "";
 
       var source = document.createElement('source');
       source.setAttribute('src', next[1]);
@@ -444,6 +449,7 @@ function leadFinal(){
    if (alienBoss.length == 0){
       var vid = document.getElementById("myVideo");
       var source = document.createElement('source');
+      vid.innerHTML= "";
       var alien02 = document.getElementsByClassName("alien02");
       console.log(alien02);
 
