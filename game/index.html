@@ -8,47 +8,40 @@
     <script src="../resources/js/CSS3DArgonRenderer.js"></script>
     <script src="../resources/js/CSS3DArgonHUD.js"></script>
     <script src="../resources/js/aframe-look-at-component.js"></script>
-    <script type="text/javascript" src="test-game-Yajing.js"></script>
+    <script type="text/javascript" src="game.js"></script>
     <link rel="stylesheet" href="../resources/css/font-awesome.min.css">
 	  <link rel="stylesheet" type="text/css" href="../resources/style.css">
   </head>
   <body>
 
-    <div hidden>
-      <!--
-      Add some stuff if needed
-      -->
-    </div>
-
     <div id="gui" class="gui">
         <audio id="gunAudio" src="../resources/sounds/gunshot.mp3" ></audio>
+        <audio id="reloadAudio" src="../resources/sounds/reloadaudio.wav"></audio>
+        <audio id="gotPonitsAudio" src="../resources/sounds/gotPonitsAudio.wav"></audio>
+        <button id="videoControl" onclick="pauseVid()" type="button" style="display: none;">Close</button>
 
         <div id="button">
-<!-- <<<<<<< HEAD -->
-          <img id="bt" src="../resources/images/button.png" width="50px" height="100px" onclick="playGunshot();">
+          <img id="bt" src="../resources/images/button.png" width="50px" height="100px" onclick="playGunshot(); updateFirstscene();">
         </div>
 
         <img id="reLoad" src="../resources/images/reload.png" width="70px" height="70px" onclick="reload()">
 
-        <div id="scoreArea">0</div>
+        <div id="scoreArea">000</div>
         <img id="score" src="../resources/images/score-final.png" width="60px" height="140px">
         
-        <div id="bulletArea">20/20</div>
+        <div id="bulletArea">15/15</div>
         <img id="bullet" src="../resources/images/bullet-final.png" width="60px" height="140px">
         
         <div id="bombArea">15:00</div>
         <img id="bombTime" src="../resources/images/bombtime-final.png" width="53px" height="140px">
         
-        <div id="alienArea">20/20</div>
+        <div id="alienArea">15/15</div>
         <img id="alienNum" src="../resources/images/aliennumber-final.png" width="55px" height="140px">
-
-<!-- ======= -->
-        <!-- <img id="bt" src="../resources/images/button.png" width="100px" height="60px" onclick="playGunshot(); click();"> -->
-<!-- >>>>>>> master -->
       
     </div>
 
     <script type="text/javascript">main();</script>
+
     <ar-scene>
       <a-assets>
         <audio id="gunshot" src="../resources/sounds/gunshot.mp3">
@@ -65,24 +58,74 @@
 
       </ar-geopose>
       -->
+      <a-assets>
+         <video id="averageending" autoplay loop="true"  src="videos/averageending.mp4"></video>
+         <video id="badending" autoplay loop="true" src="videos/badending.mp4"></video>
+         <video id="bestending" autoplay loop="true" src="videos/bestending.mp4"></video>
+         <video id="killbad1" autoplay loop="true" src="videos/killbad1.mp4"></video>
+         <video id="killbad2" autoplay loop="true" src="videos/killbad2.mp4"></video>
+         <video id="killgood1" autoplay loop="true" src="videos/killgood1.mp4"></video>
+         <video id="killgood2" autoplay loop="true" src="videos/killgood2.mp4"></video>
+         <video id="killnomal1" autoplay loop="true" src="videos/killnormal1.mp4"></video>
+         <video id="killnormal2" autoplay loop="true" src="videos/killnormal2.mp4"></video>
+      </a-assets>
 
       <a-entity id="game" position="0 -1 -8">
+        <a-entity id ="videoContainer"></a-entity>
 <!-- <<<<<<< HEAD -->
-        <a-entity collada-model="#alienModel" id="alien1" position="-5 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1 1">
-<!-- ======= -->
-
-<!-- >>>>>>> master -->
-          <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>
+        <a-entity collada-model="#alienModel" id="alien1" class="alien01" position="0 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
+          <!-- <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation> -->
         </a-entity>
 
-        <a-entity collada-model="#alienModel" id="alien2" position="0 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">
-          <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>
+        <a-entity collada-model="#alienModel" id="alien2" class="alien01" position="1 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
         </a-entity>
 
-        <a-entity collada-model="#alienModel" id="alien3" position="5 0.5 1" alien-listener rotation="0 0 0" scale="1.2 1.2 1.2">
-          <a-animation attribute="rotation" begin="alienDeath" direction="normal" dur="3000" easing="ease-in" from="0 0 0" to="270 0 0" repeat="0"></a-animation>
+        <a-entity collada-model="#alienModel" class="alien01" id="alien3" position="2 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
         </a-entity>
+
+        <a-entity collada-model="#alienModel" class="alien01" id="alien4" position="3 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">         
+        </a-entity>
+
+        <a-entity collada-model="#alienModel" class="alien01" id="alien5" position="4 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">         
+        </a-entity>
+
+        <a-entity collada-model="#alienModel02" class="alien02" id="alien6" position="-5 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">    
+        </a-entity>
+
+        <a-entity collada-model="#alienModel02" class="alien02" id="alien7" position="-4 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">    
+        </a-entity>
+
+        <a-entity collada-model="#alienModel02" class="alien02" id="alien8" position="-3 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">    
+        </a-entity>
+
+        <a-entity collada-model="#alienModel02" class="alien02" id="alien9" position="-2 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">    
+        </a-entity>
+
+        <a-entity collada-model="#alienModel02" class="alien02" id="alien10" position="-1 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">    
+        </a-entity>
+
+        <a-entity collada-model="#alienModel03" class="alien03" id="alien11" position="5 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
+        </a-entity>
+
+        <a-entity collada-model="#alienModel03" class="alien03" id="alien12" position="6 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
+        </a-entity>
+
+        <a-entity collada-model="#alienModel03" class="alien03" id="alien13" position="7 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
+        </a-entity>
+
+        <a-entity collada-model="#alienModel03" class="alien03" id="alien14" position="8 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
+        </a-entity>
+
+        <a-entity collada-model="#alienModel03" class="alien03" id="alien15" position="9 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">
+        </a-entity>
+
       </a-entity>
+
+      <!-- Second Stage -->
+      <a-entity id="secondScene" position="-14 -1 -8"></a-entity>
+
+      <!-- Third Stage -->
+       <a-entity id="thirdScene" position="14 -1 -8" ></a-entity>
 
       <ar-camera>
         <!-- Custom geometry must be created for crosshair -->
@@ -93,13 +136,9 @@
                     <a-animation begin="click" easing="ease-in" attribute="scale"
                                  fill="backwards" from="0.5 0.5 0.5" to="1 1 1" dur="150">
                     </a-animation>
-                    <!--
-                    <a-animation begin="fusing" easing="ease-in" attribute="scale"
-                                 fill="forwards" from="1 1 1" to="0.5 0.5 0.5" dur="1500">
-                    </a-animation>
-                    -->
+                    
                 <a-image src="#cursorImg" scale="0.01 0.01 0.01" opacity="0.75"></a-image>
-                <a-entity collada-model="#gunModel" position="-1 0 -1" rotation="145 50 -20" scale="4 4 4">
+                <a-entity collada-model="#gunModel" position="-1 0 -1" rotation="145 50 -20" scale="4 4 4"></a-entity>
         </a-entity>
       </ar-camera>
 

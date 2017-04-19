@@ -161,7 +161,7 @@ function leadNext(){
   var next = ["#killnormal1","#killgood1","#killbad1"];
 
   for (i = 0; i < 3; i++) { 
-    if (alien[i] == 4) {
+    if (alien[i] == 0) {
       var btn = document.getElementById("videoControl");
       btn.style.display = "block";
 
