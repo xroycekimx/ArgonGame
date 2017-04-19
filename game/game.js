@@ -176,7 +176,7 @@ function leadNext(){
       video.setAttribute('height', 6.75);
       vid.appendChild(video);
       
-      var playVideo = document.getElementById(arrID[counter]);
+      var playVideo = document.getElementById(arrID[i]);
       playVideo.play();
 
       secondGo[i] = true;
