@@ -7,18 +7,6 @@ var bulletNum = 15;
 
 var secondGo = [false, false, false];
 
-  AFRAME.registerComponent('cursor-listener', {
-          init: function () {
-            this.el.addEventListener('click', function (evt) {
-              var vid = document.getElementById("killnormal2");
-                // screen.setAttribute("material", arr[counter]);
-                console.log("This video exists!!");
-                vid.play();
-                console.log('I was clicked at: ', evt.detail.intersection.point);
-              
-            });
-          }
-        });
 
 function main() {
 
@@ -159,6 +147,9 @@ function reload(){
 
   var nodeBullet = document.getElementById("bulletArea");  
   nodeBullet.innerHTML = "<div>" + bulletNum+ "/15</div>";
+
+  var vid = document.getElementById("averageending");
+  vid.play();
 }
 
 function leadNext(){
