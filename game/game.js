@@ -161,7 +161,7 @@ function leadNext(){
   var alien = [alien01.length, alien02.length, alien03.length];
   // var next = ["../videos/killnormal1.mp4","../videos/killgood1.mp4","../videos/killbad1.mp4"];
   var next = ["#killnormal1","#killgood1","#killbad1"];
-  var arrID = ["killnormal1","killgood1","killbad1"];
+  // var arrID = ["killnormal1","killgood1","killbad1"];
 
   for (i = 0; i < 3; i++) { 
     if (alien[i] == 0) {
@@ -189,7 +189,7 @@ function pauseVid() {
     btn.style.display = "none";
 
     var vid = document.getElementById("videoContainer"); 
-    vid.innerHTML = "";
+    vid.innerHTML = " ";
 } 
     
 
@@ -210,10 +210,10 @@ function ShowSecond(){
       if (secondGo[i] ==true){
            var secondLocation = document.getElementById(locationID[i]);
            secondLocation.innerHTML = "<a-entity position='0 0.5 1' alien-listener id='alien16' class='alienSecond' rotation='0 90 0' scale='10 10 10'></a-entity>";
-           secondLocation.innerHTML += "<a-entity position='20 0.5 -2' alien-listener id='alien17' class='alienSecond' rotation='0 70 0' scale='10 10 10'></a-entity>";
-           secondLocation.innerHTML += "<a-entity position='12 0.5 2' alien-listener id='alien18' class='alienSecond' rotation='0 10 0' scale='10 10 10'></a-entity>";
-           secondLocation.innerHTML += "<a-entity position='-6 0.5 -4' alien-listener id='alien19' class='alienSecond' rotation='0 90 0' scale='10 10 10'></a-entity>";
-           secondLocation.innerHTML += "<a-entity position='-18 0.5 1' alien-listener id='alien20' class='alienSecond' rotation='0 30 0' scale='10 10 10'></a-entity>";
+           secondLocation.innerHTML += "<a-entity position='40 0.5 -2' alien-listener id='alien17' class='alienSecond' rotation='0 70 0' scale='10 10 10'></a-entity>";
+           secondLocation.innerHTML += "<a-entity position='22 0.5 2' alien-listener id='alien18' class='alienSecond' rotation='0 10 0' scale='10 10 10'></a-entity>";
+           secondLocation.innerHTML += "<a-entity position='-26 0.5 -4' alien-listener id='alien19' class='alienSecond' rotation='0 90 0' scale='10 10 10'></a-entity>";
+           secondLocation.innerHTML += "<a-entity position='-38 0.5 1' alien-listener id='alien20' class='alienSecond' rotation='0 30 0' scale='10 10 10'></a-entity>";
            var alienTag = document.getElementsByClassName('alienSecond');
           
            for (e = 0; e < alienTag.length; e++){
@@ -269,8 +269,8 @@ function showThird(){
 
         var thirdLocation = document.getElementById('thirdScene');
         thirdLocation.innerHTML = "<a-entity position='0 0.5 1' alien-listener collada-model='#alienModelBoss' id='alien21' class='alienThird' rotation='0 10 0' scale='15 15 15'></a-entity>";
-        thirdLocation.innerHTML += "<a-entity position='-20 0.5 -2' alien-listener collada-model='#alienModelBoss' id='alien22' class='alienThird' rotation='0 60 0' scale='15 15 15'></a-entity>";
-        thirdLocation.innerHTML += "<a-entity position='20 -0.5 1' alien-listener collada-model='#alienModelBoss' id='alien22' class='alienThird' rotation='0 30 0' scale='15 15 15'></a-entity>";
+        thirdLocation.innerHTML += "<a-entity position='-40 0.5 -2' alien-listener collada-model='#alienModelBoss' id='alien22' class='alienThird' rotation='0 60 0' scale='15 15 15'></a-entity>";
+        thirdLocation.innerHTML += "<a-entity position='40 -0.5 1' alien-listener collada-model='#alienModelBoss' id='alien22' class='alienThird' rotation='0 30 0' scale='15 15 15'></a-entity>";
         document.getElementById('bt').onclick = function() { 
            playGunshotBoss();
            updateLastscene();
