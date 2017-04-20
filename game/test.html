@@ -45,14 +45,14 @@
       <script>
         var arrID = ["vid1", "vid2"];
         var arr = ["src: #vid1", "src: #vid2"];
-        var screen = document.getElementById("screen");
+        // var screen = document.getElementById("screen");
         AFRAME.registerComponent('cursor-listener', {
           init: function () {
             var counter = parseInt(this.el.getAttribute("id"), 10);
             this.el.addEventListener('click', function (evt) {
               var vid = document.getElementById(arrID[counter]);
               if (vid != null) {
-                screen.setAttribute("material", arr[counter]);
+                // screen.setAttribute("material", arr[counter]);
                 console.log("This video exists!!");
                 vid.play();
                 console.log('I was clicked at: ', evt.detail.intersection.point);
