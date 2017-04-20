@@ -79,8 +79,10 @@
 
 
       <a-entity id="game" position="0 -1 -8">
-        <a-entity id ="videoContainer"></a-entity>
-         <!-- <a-video src="#averageending" width="16" height="9" position="0 2.2 2"></a-video> -->     
+        <a-entity id ="videoContainer">
+          <a-plane ></a-plane>
+        </a-entity>
+         <a-video src="#averageending" width="16" height="9" position="0 2.2 2"></a-video>     
         <a-entity collada-model="#alienModel" class="alien01" id="alien1" position="0 0.5 1" alien-listener rotation="0 0 0" scale="1 1 1">         
         </a-entity>
 
