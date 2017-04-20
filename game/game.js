@@ -174,7 +174,7 @@ function leadNext(){
       var address = next[i];
       document.getElementById("videoControl").onclick = function(){
         var vid = document.getElementById(address); 
-        console.log(next[i]);
+        // console.log(next[i]);
         vid.play();
         btn.style.display = "none";
       }
@@ -415,7 +415,7 @@ function leadForward(){
       // video.setAttribute('height', 5);
       // vid.appendChild(video);
      document.getElementById("videoControl").onclick = function(){
-            var vid = document.getElementById('killbad1']);
+            var vid = document.getElementById('killbad1');
             vid.play();
             btn.style.display = "none";
           }
