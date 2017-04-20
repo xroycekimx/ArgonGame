@@ -180,7 +180,7 @@ function leadNext(){
       vid.setAttribute('material', next[i]);
 
       var playVideo = document.getElementById(arrID[i]); 
-      vid.play();
+      playVideo.play();
 
       secondGo[i] = true;
       ShowSecond();
