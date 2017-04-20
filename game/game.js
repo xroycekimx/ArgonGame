@@ -148,8 +148,8 @@ function reload(){
   var nodeBullet = document.getElementById("bulletArea");  
   nodeBullet.innerHTML = "<div>" + bulletNum+ "/15</div>";
 
-  var vid = document.getElementById("averageending");
-  vid.play();
+  // var vid = document.getElementById("averageending");
+  // vid.play();
 }
 
 function leadNext(){
