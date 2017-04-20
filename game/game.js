@@ -171,8 +171,10 @@ function leadNext(){
     if (alien[i] == 0) {
       var btn = document.getElementById("videoControl");
       btn.style.display = "block";
+      var address = next[i];
       document.getElementById("videoControl").onclick = function(){
-        var vid = document.getElementById(next[i]); 
+        var vid = document.getElementById(address); 
+        console.log(next[i]);
         vid.play();
         btn.style.display = "none";
       }
@@ -259,8 +261,9 @@ function leadThird(){
 
           var btn = document.getElementById("videoControl");
           btn.style.display = "block";
+          var address =secondVideo[i];
           document.getElementById("videoControl").onclick = function(){
-            var vid = document.getElementById(secondVideo[i]);
+            var vid = document.getElementById(address);
             vid.play();
             btn.style.display = "none";
           }
@@ -392,7 +395,7 @@ function leadForward(){
       // video.setAttribute('height', 8.5);
       // vid.appendChild(video);
       document.getElementById("videoControl").onclick = function(){
-            var vid = document.getElementById(next[0]);
+            var vid = document.getElementById('killnormal1');
             vid.play();
             btn.style.display = "none";
           }
@@ -412,7 +415,7 @@ function leadForward(){
       // video.setAttribute('height', 5);
       // vid.appendChild(video);
      document.getElementById("videoControl").onclick = function(){
-            var vid = document.getElementById(next[1]);
+            var vid = document.getElementById('killbad1']);
             vid.play();
             btn.style.display = "none";
           }
