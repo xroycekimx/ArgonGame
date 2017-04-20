@@ -174,7 +174,7 @@ function leadNext(){
       var address = next[i];
       document.getElementById("videoControl").onclick = function(){
         var vid = document.getElementById(address); 
-        // console.log(next[i]);
+        console.log(address);
         vid.play();
         btn.style.display = "none";
       }
@@ -278,7 +278,7 @@ function leadThird(){
 function showThird(){
 
     if (secondGo[1] == false){
-        setInterval(countdown(2), 5000);
+        setInterval(countdown(15), 5000);
 
         var nodeAlien = document.getElementById("alienArea");
         nodeAlien.innerHTML = "Boss!";
