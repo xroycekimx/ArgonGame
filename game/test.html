@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <title>Video Material Test</title>
+    <meta name="description" content="Video Material Test">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="../resources/js/argon.min.js"></script>
+    <script src="../build.js"></script>
+  </head>
+  <body>
+    <ar-scene>
+
+      <a-assets>
+      <!-- need to put your videos in as an asset, replace ex.mp4 with your video file -->
+          <img id = "img1" src="../resources/images/mouse.png"></img>
+          <img id = "img2" src="../resources/images/reload.png"></img>
+          <video id = "vid1" src="videos/killgood2.mp4" autoplay="true"></video>
+          <video id = "vid2" src="videos/bestending.mp4" autoplay="true"></video>
+      </a-assets>
+
+      <a-entity id="helloworld" position="1 -1 -4">
+           <!-- the line below references your video by placing it as a material of an object -->
+          <a-entity id="screen" geometry="primitive: plane" material="src: #vid1" position="-1 0.5 1" rotation="0 45 0"  width="2" height="2" depth="1">
+          </a-entity>
+      </a-entity>
+
+      <a-entity position=".5 -4 -6">
+        <a-entity id="0" geometry="primitive: plane" material="src: #img1" position="-1 0.5 1" rotation="0 45 0" cursor-listener width="1" height="1">
+        </a-entity>
+      </a-entity>
+
+      <a-entity position="1.5 -3 -6">
+        <a-entity id="1" geometry="primitive: plane" material="src: #img2" position="-1 0.5 1" rotation="0 45 0" cursor-listener width="1" height="1">
+        </a-entity>
+      </a-entity>
+
+      <!-- a cursor component is necessary to trigger the video to play -->
+      <ar-camera>
+        <a-entity id="myCursor" cursor="fuse:true; fuse-timeout: 1000"
+                    position="0 0 -0.1"
+                    geometry="primitive:ring; radiusInner: 0.001; radiusOuter: 0.0015"
+                    material="color: #2E3A87; opacity:0.3;">
+        </a-entity>
+      </ar-camera>
+
+      <script>
+        var arrID = ["vid1", "vid2"];
+        var arr = ["src: #vid1", "src: #vid2"];
+        var screen = document.getElementById("screen");
+        AFRAME.registerComponent('cursor-listener', {
+          init: function () {
+            var counter = parseInt(this.el.getAttribute("id"), 10);
+            this.el.addEventListener('click', function (evt) {
+              var vid = document.getElementById(arrID[counter]);
+              if (vid != null) {
+                screen.setAttribute("material", arr[counter]);
+                console.log("This video exists!!");
+                vid.play();
+                console.log('I was clicked at: ', evt.detail.intersection.point);
+              }
+            });
+          }
+        });
+  	  </script>
+
+    </ar-scene>
+  </body>
+</html>
