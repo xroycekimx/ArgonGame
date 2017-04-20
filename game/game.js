@@ -7,6 +7,19 @@ var bulletNum = 15;
 
 var secondGo = [false, false, false];
 
+  AFRAME.registerComponent('cursor-listener', {
+          init: function () {
+            this.el.addEventListener('click', function (evt) {
+              var vid = document.getElementById("killnormal2");
+                // screen.setAttribute("material", arr[counter]);
+                console.log("This video exists!!");
+                vid.play();
+                console.log('I was clicked at: ', evt.detail.intersection.point);
+              
+            });
+          }
+        });
+
 function main() {
 
   AFRAME.registerComponent('alien-listener', {
@@ -176,11 +189,11 @@ function leadNext(){
       // video.setAttribute('height', 5);
       // vid.appendChild(video);
 
-      var vid = document.getElementById("1"); 
+      var vid = document.getElementById("0"); 
       vid.setAttribute('material', next[i]);
 
-      var playVideo = document.getElementById(arrID[i]); 
-      playVideo.play();
+      // var playVideo = document.getElementById(arrID[i]); 
+      // playVideo.play();
 
       secondGo[i] = true;
       ShowSecond();
