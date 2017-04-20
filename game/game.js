@@ -173,7 +173,7 @@ function leadNext(){
 
   var alien = [alien01.length, alien02.length, alien03.length];
   // var next = ["../videos/killnormal1.mp4","../videos/killgood1.mp4","../videos/killbad1.mp4"];
-  var next = ["src: #killnormal1","src: #killgood1","src: #killbad1"];
+  var next = ["#killnormal1","#killgood1","#killbad1"];
   var arrID = ["killnormal1","killgood1","killbad1"];
 
   for (i = 0; i < 3; i++) { 
@@ -181,19 +181,13 @@ function leadNext(){
       var btn = document.getElementById("videoControl");
       btn.style.display = "block";
 
-      // var vid = document.getElementById("videoContainer"); 
-      // var video = document.createElement('a-video');
-      // video.setAttribute('src', next[i]);
-      // video.setAttribute("position", {x: 0, y: 2.2, z: 2});
-      // video.setAttribute('width', 9);
-      // video.setAttribute('height', 5);
-      // vid.appendChild(video);
-
-      var vid = document.getElementById("0"); 
-      vid.setAttribute('material', next[i]);
-
-      // var playVideo = document.getElementById(arrID[i]); 
-      // playVideo.play();
+      var vid = document.getElementById("videoContainer"); 
+      var video = document.createElement('a-video');
+      video.setAttribute('src', next[i]);
+      video.setAttribute("position", {x: 0, y: 2.2, z: 2});
+      video.setAttribute('width', 9);
+      video.setAttribute('height', 5);
+      vid.appendChild(video);
 
       secondGo[i] = true;
       ShowSecond();
@@ -264,8 +258,8 @@ function leadThird(){
           var video = document.createElement('a-video');
           video.setAttribute('src', secondVideo[i]);
           video.setAttribute("position", {x: 0, y: 2.2, z: 2});
-          video.setAttribute('width', 15);
-          video.setAttribute('height', 8.5);
+          video.setAttribute('width', 9);
+          video.setAttribute('height', 5);
           vid.appendChild(video);
 
           var btn = document.getElementById("videoControl");
@@ -364,8 +358,8 @@ function bomb(){
       var video = document.createElement('a-video');
       video.setAttribute('src', '#badending');
       video.setAttribute("position", {x: 0, y: 2.2, z: 2});
-      video.setAttribute('width', 15);
-      video.setAttribute('height', 8.5);
+      video.setAttribute('width', 9);
+      video.setAttribute('height', 5);
       vid.appendChild(video);
     }
   }
@@ -404,8 +398,8 @@ function leadForward(){
       var video = document.createElement('a-video');
       video.setAttribute('src', next[1]);
       video.setAttribute("position", {x: 0, y: 2.2, z: 2});
-      video.setAttribute('width', 15);
-      video.setAttribute('height', 8.5);
+      video.setAttribute('width', 9);
+      video.setAttribute('height', 5);
       vid.appendChild(video);
 
       
