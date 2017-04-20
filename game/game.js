@@ -164,21 +164,25 @@ function leadNext(){
 
   var alien = [alien01.length, alien02.length, alien03.length];
   // var next = ["../videos/killnormal1.mp4","../videos/killgood1.mp4","../videos/killbad1.mp4"];
-  var next = ["#killnormal1","#killgood1","#killbad1"];
-  var arrID = ["killnormal1","killgood1","killbad1"];
+  var next = ["killnormal1","killgood1","killbad1"];
+  // var arrID = ["killnormal1","killgood1","killbad1"];
 
   for (i = 0; i < 3; i++) { 
     if (alien[i] == 0) {
       var btn = document.getElementById("videoControl");
       btn.style.display = "block";
-
-      var vid = document.getElementById("videoContainer"); 
-      var video = document.createElement('a-video');
-      video.setAttribute('src', next[i]);
-      video.setAttribute("position", {x: 0, y: 2.2, z: 2});
-      video.setAttribute('width', 9);
-      video.setAttribute('height', 5);
-      vid.appendChild(video);
+      document.getElementById("videoControl").onclick = function(){
+        var vid = document.getElementById(next[i]); 
+        vid.play();
+        btn.style.display = "none";
+      }
+  
+      // var video = document.createElement('a-video');
+      // video.setAttribute('src', next[i]);
+      // video.setAttribute("position", {x: 0, y: 2.2, z: 2});
+      // video.setAttribute('width', 9);
+      // video.setAttribute('height', 5);
+      // vid.appendChild(video);
 
       secondGo[i] = true;
       ShowSecond();
@@ -187,14 +191,14 @@ function leadNext(){
     }
 }
 
-function pauseVid() { 
+// function pauseVid() { 
    
-    var btn = document.getElementById("videoControl");
-    btn.style.display = "none";
+//     var btn = document.getElementById("videoControl");
+//     btn.style.display = "none";
 
-    var vid = document.getElementById("videoContainer"); 
-    vid.innerHTML = " ";
-} 
+//     var vid = document.getElementById("videoContainer"); 
+//     vid.innerHTML = " ";
+// } 
     
 
 function ShowSecond(){
