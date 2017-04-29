@@ -290,9 +290,9 @@ function showThird(){
         nodeAlien.innerHTML = "Boss!";
 
         var thirdLocation = document.getElementById('thirdScene');
-        thirdLocation.innerHTML = "<a-entity position='0 0.5 1' alien-listener collada-model='#alienModelBoss' id='alien21' class='alienThird' rotation='0 10 0' scale='15 15 15'></a-entity>";
-        thirdLocation.innerHTML += "<a-entity position='-40 0.5 -2' alien-listener collada-model='#alienModelBoss' id='alien22' class='alienThird' rotation='0 60 0' scale='15 15 15'></a-entity>";
-        thirdLocation.innerHTML += "<a-entity position='40 -0.5 1' alien-listener collada-model='#alienModelBoss' id='alien22' class='alienThird' rotation='0 30 0' scale='15 15 15'></a-entity>";
+        thirdLocation.innerHTML = "<a-entity position='0 0.5 1' alien-listener collada-model='#alienModelBoss' id='alien21' class='alienThird' rotation='0 10 0' scale='15 15 15'><a-animation attribute='rotation' from='0 -300 0' to='0 60 0' repeat='3' dur='6200' fill ='both' easing ='ease-out'></a-animation></a-entity>";
+        thirdLocation.innerHTML += "<a-entity position='-40 0.5 -2' alien-listener collada-model='#alienModelBoss' id='alien22' class='alienThird' rotation='0 60 0' scale='15 15 15'><a-animation attribute='rotation' from='0 300 0' to='0 -60 0' repeat='3' dur='7200' fill ='both' easing ='ease-out'></a-animation></a-entity>";
+        thirdLocation.innerHTML += "<a-entity position='40 -0.5 1' alien-listener collada-model='#alienModelBoss' id='alien22' class='alienThird' rotation='0 30 0' scale='15 15 15'><a-animation attribute='rotation' from='0 30 0' to='0 -330 0' repeat='3' dur='6200' fill ='both' easing ='ease-out'></a-animation></a-entity>";
         document.getElementById('bt').onclick = function() { 
            playGunshotBoss();
            updateLastscene();
