@@ -43,7 +43,8 @@ function main() {
   });
 }
 
-document.getElementById("introVideo").onclick = function(){
+function playIntrovideo(){
+        var btn = document.getElementById('introVideo');
         var vid = document.getElementById('intro'); 
         vid.play();
         btn.style.display = "none";
