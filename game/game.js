@@ -228,8 +228,8 @@ function ShowSecond(){
            secondLocation.innerHTML = "<a-entity position='0 0.5 1' alien-listener id='alien16' class='alienSecond' rotation='0 90 0' scale='10 10 10'></a-entity>";
            secondLocation.innerHTML += "<a-entity position='40 0.5 -2' alien-listener id='alien17' class='alienSecond' rotation='0 70 0' scale='10 10 10'></a-entity>";
            secondLocation.innerHTML += "<a-entity position='22 0.5 2' alien-listener id='alien18' class='alienSecond' rotation='0 10 0' scale='10 10 10'></a-entity>";
-           secondLocation.innerHTML += "<a-entity position='-26 0.5 -4' alien-listener id='alien19' class='alienSecond' rotation='0 90 0' scale='10 10 10'></a-entity>";
-           secondLocation.innerHTML += "<a-entity position='-38 0.5 1' alien-listener id='alien20' class='alienSecond' rotation='0 30 0' scale='10 10 10'></a-entity>";
+           secondLocation.innerHTML += "<a-entity position='-36 0.5 -4' alien-listener id='alien19' class='alienSecond' rotation='0 90 0' scale='10 10 10'></a-entity>";
+           secondLocation.innerHTML += "<a-entity position='-58 0.5 1' alien-listener id='alien20' class='alienSecond' rotation='0 30 0' scale='10 10 10'></a-entity>";
            var alienTag = document.getElementsByClassName('alienSecond');
           
            for (e = 0; e < alienTag.length; e++){
