@@ -43,7 +43,7 @@ function main() {
   });
 }
 
-document.getElementById("videoControl").onclick = function(){
+document.getElementById("introVideo").onclick = function(){
         var vid = document.getElementById('intro'); 
         vid.play();
         btn.style.display = "none";
