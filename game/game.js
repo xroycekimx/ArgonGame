@@ -43,6 +43,12 @@ function main() {
   });
 }
 
+document.getElementById("videoControl").onclick = function(){
+        var vid = document.getElementById('intro'); 
+        vid.play();
+        btn.style.display = "none";
+      }
+
 function playGunshot() {
   var gunAudio = document.getElementById("gunAudio");
   gunAudio.play();
@@ -174,7 +180,6 @@ function leadNext(){
       var address = next[i];
       document.getElementById("videoControl").onclick = function(){
         var vid = document.getElementById(address); 
-        console.log(address);
         vid.play();
         btn.style.display = "none";
       }
